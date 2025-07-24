@@ -1,0 +1,42 @@
+#!/bin/bash
+
+set -e
+
+USER="bitcoin"
+
+case "$1" in
+  configure|reconfigure)
+
+  if [ -d /etc ]; then
+    if [ ! -d /etc/datum-gateway ]; then
+      mkdir -p /etc/datum-gateway
+      chown $USER:$USER /etc/datum-gateway
+    fi
+  fi
+  
+  if [ ! -f /etc/datum-gateway/datum_gateway_config.json ]; then
+    PASSWORD=$(pwgen -s 32 1)
+    cp /usr/share/doc/datum-gateway/example_datum_gateway_config.json /etc/datum-gateway/datum_gateway_config.json
+    chown $USER:$USER /etc/datum-gateway/datum_gateway_config.json
+    runuser -u $USER -- jq --arg PASSWORD "$PASSWORD" 'del(.bitcoind.rpcuser) | del(.bitcoind.rpcpassword) | .bitcoind.rpccookiefile = "/var/lib/bitcoin/.cookie" | .mining.pool_address = "" | .api.admin_password = $PASSWORD | .api.modify_conf = true' /etc/datum-gateway/datum_gateway_config.json > /etc/datum-gateway/datum_gateway_config.json.tmp \
+      && mv /etc/datum-gateway/datum_gateway_config.json.tmp /etc/datum-gateway/datum_gateway_config.json
+  fi
+  
+  if [ -f /etc/datum-gateway/datum_gateway_config.json ]; then
+    if command -v whiptail >/dev/null 2>&1; then
+      BTCADDRESS=$(whiptail --inputbox "Enter your Bitcoin address:" 8 78 "" 3>&1 1>&2 2>&3) || true
+      if [ -n "$BTCADDRESS" ]; then
+        runuser -u $USER -- jq --arg BTCADDRESS "$BTCADDRESS" '.mining.pool_address = $BTCADDRESS' /etc/datum-gateway/datum_gateway_config.json > /etc/datum-gateway/datum_gateway_config.json.tmp \
+          && mv /etc/datum-gateway/datum_gateway_config.json.tmp /etc/datum-gateway/datum_gateway_config.json
+      else
+        whiptail --msgbox "No Bitcoin address entered, you can still configure it in the config file/GUI." 8 60
+      fi
+    fi
+  fi
+  ;;
+esac
+
+
+#DEBHELPER#
+
+exit 0

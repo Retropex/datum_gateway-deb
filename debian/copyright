@@ -1,10 +1,14 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: datum-gateway
-Upstream-Contact: Luke Dashjr <luke+datum@ocean.xyz>
+Upstream-Contact: Léo Haf <leo@haf.ovh>
 Source: https://github.com/OCEAN-xyz/datum_gateway
 
 Files: *
 Copyright: 2024 Bitcoin Ocean, LLC & Jason Hughes
+License: Expat
+
+Files: debian/*
+Copyright: Luke Dashjr & Léo Haf
 License: Expat
 
 License: Expat

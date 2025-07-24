@@ -1,5 +1,5 @@
-datum-gateway (0.2~beta-1) UNRELEASED; urgency=low
+datum-gateway (0.3.1~beta-1) unstable; urgency=low
 
-  * Initial release.
+  * Initial release. Closes: #1108258
 
- -- Luke Dashjr <luke+datum@ocean.xyz>  Fri, 18 Oct 2024 03:06:41 +0000
+ -- Léo Haf <leo@haf.ovh>  Tue, 24 Jun 2025 03:06:41 +0000

@@ -1,22 +1,26 @@
 Source: datum-gateway
-Maintainer: Luke Dashjr <luke+datum@ocean.xyz>
+Maintainer: Léo Haf <leo@haf.ovh>
 Section: net
 Priority: optional
-Standards-Version: 4.5.0
+Standards-Version: 4.7.2
 Homepage: https://ocean.xyz
-Vcs-Git: https://github.com/OCEAN-xyz/datum_gateway.git
-Vcs-Browser: https://github.com/OCEAN-xyz/datum_gateway
-Build-Depends: debhelper,
+Vcs-Git: https://salsa.debian.org/cryptocoin-team/datum-gateway.git
+Vcs-Browser: https://salsa.debian.org/cryptocoin-team/datum-gateway
+Build-Depends: debhelper-compat (= 13),
  cmake,
- pkg-config,
+ pkgconf,
  libjansson-dev,
  libmicrohttpd-dev,
  libsodium-dev,
- libcurl-dev
+ libcurl4-openssl-dev
 
 Package: datum-gateway
 Architecture: amd64 arm64
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${shlibs:Depends},
+ ${misc:Depends},
+ bitcoin-knots,
+ pwgen,
+ jq
 Description: Decentralized Alternative Templates for Universal Mining
  The DATUM Gateway is a server providing solo mining capabilities for Bitcoin
  miners, including both non-pooled and pooled solo mining using the new DATUM

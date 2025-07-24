@@ -1,0 +1,22 @@
+#!/bin/bash
+
+set -e
+
+USER="bitcoin"
+
+case "$1" in
+  purge)
+    
+    if [ -d /etc/datum-gateway ]; then
+      rm -rf /etc/datum-gateway
+    fi
+    ;;
+    
+  upgrade|remove|failed-upgrade|abort-install|abort-upgrade|disappear)
+    ;;
+esac
+
+
+#DEBHELPER#
+
+exit 0
