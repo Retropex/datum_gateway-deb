@@ -20,7 +20,8 @@ Depends: ${shlibs:Depends},
  ${misc:Depends},
  bitcoin-knots,
  pwgen,
- jq
+ jq,
+ debconf
 Description: Decentralized Alternative Templates for Universal Mining
  The DATUM Gateway is a server providing solo mining capabilities for Bitcoin
  miners, including both non-pooled and pooled solo mining using the new DATUM
