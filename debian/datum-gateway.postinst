@@ -10,7 +10,6 @@ case "$1" in
   if [ -d /etc ]; then
     if [ ! -d /etc/datum-gateway ]; then
       mkdir -p /etc/datum-gateway
-      chown $USER:$USER /etc/datum-gateway
     fi
   fi
   
