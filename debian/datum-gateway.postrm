@@ -2,8 +2,6 @@
 
 set -e
 
-USER="bitcoin"
-
 case "$1" in
   purge)
     
