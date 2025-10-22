@@ -1,6 +1,5 @@
 Template: datum-gateway/bitcoin-address
 Type: string
-Description: The Bitcoin address you want to mine on.
- By default this Bitcoin address will be overridden by your miners usernames,
- which mean this address will only be used as a fallback in case of a
- disconnection with the pool.
+_Description: The Bitcoin address used for mining:
+ By default, this Bitcoin address is overridden by the usernames of miners, 
+ meaning it is used solely as a fallback in the event of a pool disconnection.

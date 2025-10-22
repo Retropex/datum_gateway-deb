@@ -12,7 +12,8 @@ Build-Depends: debhelper-compat (= 13),
  libjansson-dev,
  libmicrohttpd-dev,
  libsodium-dev,
- libcurl4-openssl-dev
+ libcurl4-openssl-dev,
+ po-debconf
 
 Package: datum-gateway
 Architecture: amd64 arm64
