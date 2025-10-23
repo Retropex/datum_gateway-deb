@@ -12,6 +12,10 @@ Copyright: 2025 Luke Dashjr
            2025 Léo Haf
 License: Expat
 
+Files: debian/po/*
+Copyright: 2025 Léo Haf
+License: Expat
+
 Files: src/datum_api.h
        src/datum_utils.c
        src/datum_stratum.h
