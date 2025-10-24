@@ -3,3 +3,8 @@ Type: string
 _Description: The Bitcoin address used for mining:
  By default, this Bitcoin address is overridden by the usernames of miners, 
  meaning it is used solely as a fallback in the event of a pool disconnection.
+
+Template: datum-gateway/password
+Type: note
+_Description: Password for the API: ${PASSWORD}
+ This password will be asked when accessing the web UI

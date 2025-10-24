@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: datum-gateway\n"
 "Report-Msgid-Bugs-To: datum-gateway@packages.debian.org\n"
-"POT-Creation-Date: 2025-10-22 10:33+0000\n"
+"POT-Creation-Date: 2025-10-24 09:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,4 +29,16 @@ msgstr ""
 msgid ""
 "By default, this Bitcoin address is overridden by the usernames of miners,  "
 "meaning it is used solely as a fallback in the event of a pool disconnection."
+msgstr ""
+
+#. Type: note
+#. Description
+#: ../datum-gateway.templates:2001
+msgid "Password for the API: ${PASSWORD}"
+msgstr ""
+
+#. Type: note
+#. Description
+#: ../datum-gateway.templates:2001
+msgid "This password will be asked when accessing the web UI"
 msgstr ""

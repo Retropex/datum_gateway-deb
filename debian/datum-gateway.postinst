@@ -8,24 +8,23 @@ USER="bitcoin"
 . /usr/share/debconf/confmodule
 
 case "$1" in
-  configure|reconfigure)
-
-  if [ -d /etc ]; then
-    if [ ! -d /etc/datum-gateway ]; then
-      mkdir -p /etc/datum-gateway
-    fi
-  fi
+  configure)
   
-  if [ ! -f /etc/datum-gateway/datum_gateway_config.json ]; then
+  if [ -f /etc/datum-gateway/datum_gateway_config.json ] && [ -z "$2" ]; then
     PASSWORD=$(pwgen -s 32 1)
-    cp /usr/share/doc/datum-gateway/example_datum_gateway_config.json /etc/datum-gateway/datum_gateway_config.json
+    db_set datum-gateway/password "$PASSWORD"
     chown $USER:$USER /etc/datum-gateway/datum_gateway_config.json
     runuser -u $USER -- jq --arg PASSWORD "$PASSWORD" 'del(.bitcoind.rpcuser) | del(.bitcoind.rpcpassword) | .bitcoind.rpccookiefile = "/var/lib/bitcoin/.cookie" | .mining.pool_address = "" | .api.admin_password = $PASSWORD | .api.modify_conf = true' /etc/datum-gateway/datum_gateway_config.json > /etc/datum-gateway/datum_gateway_config.json.tmp \
       && mv /etc/datum-gateway/datum_gateway_config.json.tmp /etc/datum-gateway/datum_gateway_config.json
+    db_subst datum-gateway/password PASSWORD "$PASSWORD"
+    db_fset datum-gateway/password seen false
+    db_input critical datum-gateway/password || true
+    db_go
+    db_purge
   fi
   
   if [ -f /etc/datum-gateway/datum_gateway_config.json ]; then
-    db_get datum-gateway/bitcoin-address || true
+    db_get datum-gateway/bitcoin-address || RET=
     if [ "$RET" ]; then
       runuser -u $USER -- jq --arg BTCADDRESS "$RET" '.mining.pool_address = $BTCADDRESS' /etc/datum-gateway/datum_gateway_config.json > /etc/datum-gateway/datum_gateway_config.json.tmp \
         && mv /etc/datum-gateway/datum_gateway_config.json.tmp /etc/datum-gateway/datum_gateway_config.json

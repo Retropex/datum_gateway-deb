@@ -8,6 +8,11 @@ override_dh_auto_configure:
 	dh_auto_configure -- \
 	-DCMAKE_INSTALL_DOCDIR=share/doc/datum-gateway
 
+execute_after_dh_auto_install:
+	# Rename the example config file and place it in the correct location.
+	mkdir -p debian/datum-gateway/etc/datum-gateway
+	cp doc/example_datum_gateway_config.json debian/datum-gateway/etc/datum-gateway/datum_gateway_config.json
+
 execute_after_dh_installdocs:
 	mv debian/datum-gateway/usr/share/doc/datum-gateway/doc/DATUM_recommended_setup-network_diagram.svg debian/datum-gateway/usr/share/doc/datum-gateway/
 	rmdir debian/datum-gateway/usr/share/doc/datum-gateway/doc
