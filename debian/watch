@@ -1,1 +1,5 @@
-version=5
+version: 5
+
+Source: https://github.com/OCEAN-xyz/datum_gateway/tags
+Matching-Pattern: .*/v?(\d.*)@ARCHIVE_EXT@
+Version-Mangle: s/(\d+\.\d+\.\d+)beta/$1~beta/
