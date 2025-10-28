@@ -12,11 +12,8 @@ Copyright: 2025 Luke Dashjr
            2025 Léo Haf
 License: Expat
 
-Files: debian/po/*
-Copyright: 2025 Léo Haf
-License: Expat
-
-Files: src/datum_api.h
+Files: cmake/script/GenerateBuildInfo.cmake
+       src/datum_api.h
        src/datum_utils.c
        src/datum_stratum.h
        src/datum_sockets.h
@@ -44,27 +41,18 @@ Files: src/datum_api.h
        src/datum_coinbaser.c
        src/datum_logger.c
        src/datum_blocktemplates.h
-Copyright: 2024 Bitcoin Ocean, LLC & Jason Hughes
-License: Expat
-
-Files: src/datum_stratum_tests.c
+       src/datum_stratum_tests.c
        src/datum_utils_tests.c
        src/datum_conf_tests.c
-Copyright: 2024 Bitcoin Ocean, LLC & Luke Dashjr
-License: Expat
-
-Files: src/thirdparty_segwit_addr.c
+       src/thirdparty_segwit_addr.c
        src/thirdparty_segwit_addr.h
-Copyright: 2017, 2021 Pieter Wuille
-License: Expat
-
-Files: src/thirdparty_base58.h
+       src/thirdparty_base58.h
        src/thirdparty_base58.c
-Copyright: 2012-2014 Luke Dashjr
-License: Expat
-
-Files: cmake/script/GenerateBuildInfo.cmake
-Copyright: 2024 Bitcoin Ocean, LLC & Luke Dashjr
+Copyright: 2024 Bitcoin Ocean, LLC & Jason Hughes
+           2024 Bitcoin Ocean, LLC & Luke Dashjr
+           2017, 2021 Pieter Wuille
+           2012-2014 Luke Dashjr
+           2024 Bitcoin Ocean, LLC & Luke Dashjr
            2023-present The Bitcoin Core developers
 License: Expat
 
@@ -107,3 +95,9 @@ License: Expat-trademark
  CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
  TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
  SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ .
+ This copyright license for the DATUM Gateway does not include any
+ express or implied right or license to use the DATUM trademark and any
+ trademarks, logos, service marks, or trade names of Mummolin, Inc.,
+ Bitcoin OCEAN, LLC, or any other contributors to OCEAN's open source
+ projects.
