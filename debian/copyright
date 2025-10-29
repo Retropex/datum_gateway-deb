@@ -5,6 +5,7 @@ Source: https://github.com/OCEAN-xyz/datum_gateway
 
 Files: *
 Copyright: 2024 Bitcoin Ocean, LLC & Jason Hughes
+           2024 Bitcoin Ocean, LLC & Luke Dashjr
 License: Expat-trademark
 
 Files: debian/*
@@ -13,47 +14,14 @@ Copyright: 2025 Luke Dashjr
 License: Expat
 
 Files: cmake/script/GenerateBuildInfo.cmake
-       src/datum_api.h
-       src/datum_utils.c
-       src/datum_stratum.h
-       src/datum_sockets.h
-       src/datum_jsonrpc.c
-       src/datum_queue.h
-       src/datum_conf.c
-       src/datum_sockets.c
-       src/datum_conf.h
-       src/datum_submitblock.c
-       src/datum_coinbaser.h
-       src/datum_utils.h
-       src/datum_stratum_dupes.c
-       src/datum_queue.c
-       src/datum_stratum.c
-       src/datum_gateway.h
-       src/datum_protocol.h
-       src/datum_jsonrpc.h
-       src/datum_gateway.c
-       src/datum_api.c
-       src/datum_protocol.c
-       src/datum_logger.h
-       src/datum_stratum_dupes.h
-       src/datum_submitblock.h
-       src/datum_blocktemplates.c
-       src/datum_coinbaser.c
-       src/datum_logger.c
-       src/datum_blocktemplates.h
-       src/datum_stratum_tests.c
-       src/datum_utils_tests.c
-       src/datum_conf_tests.c
        src/thirdparty_segwit_addr.c
        src/thirdparty_segwit_addr.h
        src/thirdparty_base58.h
        src/thirdparty_base58.c
-Copyright: 2024 Bitcoin Ocean, LLC & Jason Hughes
-           2024 Bitcoin Ocean, LLC & Luke Dashjr
-           2017, 2021 Pieter Wuille
+Copyright: 2017, 2021 Pieter Wuille
            2012-2014 Luke Dashjr
-           2024 Bitcoin Ocean, LLC & Luke Dashjr
            2023-present The Bitcoin Core developers
+           2024 Bitcoin Ocean, LLC & Luke Dashjr
 License: Expat
 
 License: Expat
