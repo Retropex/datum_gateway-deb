@@ -1,5 +1,5 @@
-datum-gateway (0.4.0~beta-1) unstable; urgency=low
+datum-gateway (0.4.0~beta-1) experimental; urgency=low
 
   * Initial release. Closes: #1108258
 
- -- Léo Haf <leo@haf.ovh>  Tue, 24 Jun 2025 03:06:41 +0000
+ -- Léo Haf <leo@haf.ovh>  Mon, 03 Nov 2025 11:21:42 +0000
