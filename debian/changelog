@@ -1,3 +1,9 @@
+datum-gateway (0.4.1~beta-1) experimental; urgency=medium
+
+  * Update to upstream version (v0.4.1beta)
+
+ -- Léo Haf <leo@haf.ovh>  Thu, 08 Jan 2026 12:35:36 +0000
+
 datum-gateway (0.4.0~beta-1) experimental; urgency=low
 
   * Initial release. Closes: #1108258
