@@ -9,8 +9,8 @@ Copyright: 2024 Bitcoin Ocean, LLC & Jason Hughes
 License: Expat-trademark
 
 Files: debian/*
-Copyright: 2025 Luke Dashjr
-           2025 Léo Haf
+Copyright: 2026 Luke Dashjr
+           2026 Léo Haf
 License: Expat
 
 Files: cmake/script/GenerateBuildInfo.cmake
