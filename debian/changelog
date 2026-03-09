@@ -1,6 +1,7 @@
-datum-gateway (0.4.1~beta-1) experimental; urgency=medium
+datum-gateway (0.4.1~beta-1) unstable; urgency=medium
 
   * Update to upstream version (v0.4.1beta)
+  * Move to unstable
 
  -- Léo Haf <leo@haf.ovh>  Thu, 08 Jan 2026 12:35:36 +0000
 
