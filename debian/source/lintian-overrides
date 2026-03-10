@@ -1,2 +1,5 @@
 datum-gateway source: very-long-line-length-in-source-file 608 > 512 [README.md:274]
 datum-gateway source: debian-watch-does-not-check-openpgp-signature [debian/watch]
+
+# Upstream use example instead of manual pages
+datum-gateway source: maintainer-manual-page [debian/datum_gateway.1]
