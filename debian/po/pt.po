@@ -1,0 +1,48 @@
+# Translation of datum-gateway debconf messages to European Portuguese
+# Copyright (C) 2026 THE datum-gateway'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the datum-gateway package.
+#
+# SPDX-FileCopyrightText: 2026 Américo Monteiro <a_monteiro@gmx.com>
+msgid ""
+msgstr ""
+"Project-Id-Version: datum-gateway 0.4.1~beta-1\n"
+"Report-Msgid-Bugs-To: datum-gateway@packages.debian.org\n"
+"POT-Creation-Date: 2025-10-24 09:33+0000\n"
+"PO-Revision-Date: 2026-03-12 19:22+0000\n"
+"Last-Translator: Américo Monteiro <a_monteiro@gmx.com>\n"
+"Language-Team: Portuguese <>\n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 25.04.0\n"
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:1001
+msgid "The Bitcoin address used for mining:"
+msgstr "O endereço de Bitcoin usado para mineração:"
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:1001
+msgid ""
+"By default, this Bitcoin address is overridden by the usernames of miners,  "
+"meaning it is used solely as a fallback in the event of a pool disconnection."
+msgstr ""
+"Por predefinição, este endereço Bitcoin é sobreposto pelos nomes de "
+"utilizadores dos mineiros, significando que é usado apenas somente como "
+"recurso de falha no evento de um desligar da pool."
+
+#. Type: note
+#. Description
+#: ../datum-gateway.templates:2001
+msgid "Password for the API: ${PASSWORD}"
+msgstr "Palavra passe para a API: ${PASSWORD}"
+
+#. Type: note
+#. Description
+#: ../datum-gateway.templates:2001
+msgid "This password will be asked when accessing the web UI"
+msgstr "Esta palavra passe vai ser pedida quando se acede à UI de web"
