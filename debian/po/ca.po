@@ -1,0 +1,47 @@
+# Catalan translation of datum-gateway's debconf messages
+# Copyright © 2026 poc senderi <pocsenderi@protonmail.com>
+# This file is distributed under the same license as the datum-gateway package.
+# poc senderi <pocsenderi@protonmail.com>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: datum-gateway\n"
+"Report-Msgid-Bugs-To: datum-gateway@packages.debian.org\n"
+"POT-Creation-Date: 2025-10-24 09:33+0000\n"
+"PO-Revision-Date: 2026-03-17 21:47+0100\n"
+"Last-Translator: poc senderi <pocsenderi@protonmail.com>\n"
+"Language-Team: Catalan <debian-l10n-catalan@lists.debian.org>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.2\n"
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:1001
+msgid "The Bitcoin address used for mining:"
+msgstr "Adreça de Bitcoin usada per a minatge:"
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:1001
+msgid ""
+"By default, this Bitcoin address is overridden by the usernames of miners,  "
+"meaning it is used solely as a fallback in the event of a pool disconnection."
+msgstr ""
+"De manera predeterminada, aquesta adreça Bitcoin serà substituïda pels noms "
+"d'usuari dels minadors, això és, només s'usarà en el cas d'una desconnexió "
+"amb el «pool»."
+
+#. Type: note
+#. Description
+#: ../datum-gateway.templates:2001
+msgid "Password for the API: ${PASSWORD}"
+msgstr "Contrasenya de l'API: ${PASSWORD}"
+
+#. Type: note
+#. Description
+#: ../datum-gateway.templates:2001
+msgid "This password will be asked when accessing the web UI"
+msgstr "Aquesta contrasenya serà demanada quan s'accedeixi a la interfície web"
