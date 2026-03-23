@@ -11,6 +11,10 @@ License: Expat-trademark
 Files: debian/*
 Copyright: 2026 Luke Dashjr
            2026 Léo Haf
+           2026 poc senderi
+           2026 Helge Kreutzmann
+           2026 Camaleón
+           2026 Américo Monteiro
 License: Expat
 
 Files: cmake/script/GenerateBuildInfo.cmake
