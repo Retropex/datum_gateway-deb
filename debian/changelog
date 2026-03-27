@@ -1,3 +1,14 @@
+datum-gateway (0.4.1~beta-2) unstable; urgency=medium
+
+  * Fix "[INTL:pt] Portuguese translation - debconf messages" <explain
+    what you changed and why> (Closes: #1130530)
+  * Fix "[INTL:es] Spanish translation of datum-gateway debconf
+    template" <explain what you changed and why> (Closes: #1131101)
+  * Fix "[INTL:de] Initial German debconf translation" <explain what you
+    changed and why> (Closes: #1131509)
+
+ -- Léo Haf <leo@haf.ovh>  Fri, 27 Mar 2026 16:46:43 +0000
+
 datum-gateway (0.4.1~beta-1) unstable; urgency=medium
 
   * Update to upstream version (v0.4.1beta)
