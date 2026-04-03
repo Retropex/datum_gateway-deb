@@ -1,7 +1,7 @@
 Source: datum-gateway
 Maintainer: Léo Haf <leo@haf.ovh>
 Section: net
-Standards-Version: 4.7.3
+Standards-Version: 4.7.4
 Homepage: https://ocean.xyz
 Vcs-Git: https://salsa.debian.org/cryptocoin-team/datum-gateway.git
 Vcs-Browser: https://salsa.debian.org/cryptocoin-team/datum-gateway
