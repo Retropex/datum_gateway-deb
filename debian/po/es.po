@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: datum-gateway\n"
 "Report-Msgid-Bugs-To: datum-gateway@packages.debian.org\n"
-"POT-Creation-Date: 2025-10-24 09:33+0000\n"
+"POT-Creation-Date: 2026-04-03 15:15+0000\n"
 "PO-Revision-Date: 2026-03-11 17:42+0100\n"
+"Last-Translator: Camaleón <noelamac@gmail.com>\n"
 "Language-Team: Debian Spanish <debian-l10n-spanish@lists.debian.org>\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.4.2\n"
-"Last-Translator: Camaleón <noelamac@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Language: es\n"
 
 #. Type: string
 #. Description
@@ -28,13 +28,12 @@ msgstr "Dirección de Bitcoin utilizada para la minería:"
 #. Description
 #: ../datum-gateway.templates:1001
 msgid ""
-"By default, this Bitcoin address is overridden by the usernames of "
-"miners,  meaning it is used solely as a fallback in the event of a "
-"pool disconnection."
+"By default, this Bitcoin address is overridden by the usernames of miners,  "
+"meaning it is used solely as a fallback in the event of a pool disconnection."
 msgstr ""
-"De manera predeterminada, esta dirección de Bitcoin se sustituye por "
-"los nombres de usuario de los mineros, lo que significa que se "
-"utiliza únicamente como respaldo en caso de desconexión del grupo."
+"De manera predeterminada, esta dirección de Bitcoin se sustituye por los "
+"nombres de usuario de los mineros, lo que significa que se utiliza "
+"únicamente como respaldo en caso de desconexión del grupo."
 
 #. Type: note
 #. Description
@@ -47,3 +46,15 @@ msgstr "Contraseña de la API: ${PASSWORD}"
 #: ../datum-gateway.templates:2001
 msgid "This password will be asked when accessing the web UI"
 msgstr "Se le predirá está contraseña cuando acceda a la interfaz web"
+
+#. Type: boolean
+#. Description
+#: ../datum-gateway.templates:3001
+msgid "Do you want to enable logs in /var/log/datum-gateway ?"
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../datum-gateway.templates:3001
+msgid "This is particularly useful for system that doesn't use systemd."
+msgstr ""

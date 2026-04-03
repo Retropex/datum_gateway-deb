@@ -36,6 +36,23 @@ case "$1" in
     fi
   fi
 
+  if [ -d /var/log/datum-gateway ]; then
+    if ! dpkg-statoverride --list /var/log/datum-gateway >/dev/null 2>&1; then
+      dpkg-statoverride --update --add bitcoin adm 0755 /var/log/datum-gateway
+    fi
+    
+    db_get datum-gateway/log || RET=
+    if [ "$RET" = "true" ]; then
+      runuser -u $USER -- jq '.logger.log_to_file = true' /etc/datum-gateway/datum_gateway_config.json > /etc/datum-gateway/datum_gateway_config.json.tmp \
+        && mv /etc/datum-gateway/datum_gateway_config.json.tmp /etc/datum-gateway/datum_gateway_config.json
+      runuser -u $USER -- jq '.logger.log_file = "/var/log/datum-gateway/datum.log"' /etc/datum-gateway/datum_gateway_config.json > /etc/datum-gateway/datum_gateway_config.json.tmp \
+        && mv /etc/datum-gateway/datum_gateway_config.json.tmp /etc/datum-gateway/datum_gateway_config.json
+    else
+      runuser -u $USER -- jq '.logger.log_to_file = false' /etc/datum-gateway/datum_gateway_config.json > /etc/datum-gateway/datum_gateway_config.json.tmp \
+        && mv /etc/datum-gateway/datum_gateway_config.json.tmp /etc/datum-gateway/datum_gateway_config.json
+    fi
+  fi
+
   db_stop
   ;;
 esac

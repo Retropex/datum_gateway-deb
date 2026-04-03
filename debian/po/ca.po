@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: datum-gateway\n"
 "Report-Msgid-Bugs-To: datum-gateway@packages.debian.org\n"
-"POT-Creation-Date: 2025-10-24 09:33+0000\n"
+"POT-Creation-Date: 2026-04-03 15:15+0000\n"
 "PO-Revision-Date: 2026-03-17 21:47+0100\n"
 "Last-Translator: poc senderi <pocsenderi@protonmail.com>\n"
 "Language-Team: Catalan <debian-l10n-catalan@lists.debian.org>\n"
@@ -45,3 +45,15 @@ msgstr "Contrasenya de l'API: ${PASSWORD}"
 #: ../datum-gateway.templates:2001
 msgid "This password will be asked when accessing the web UI"
 msgstr "Aquesta contrasenya serà demanada quan s'accedeixi a la interfície web"
+
+#. Type: boolean
+#. Description
+#: ../datum-gateway.templates:3001
+msgid "Do you want to enable logs in /var/log/datum-gateway ?"
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../datum-gateway.templates:3001
+msgid "This is particularly useful for system that doesn't use systemd."
+msgstr ""

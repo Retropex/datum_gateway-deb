@@ -1,0 +1,71 @@
+#! /bin/sh
+
+### BEGIN INIT INFO
+# Provides:             datum-gateway
+# Required-Start:       $remote_fs $syslog bitcoin-knots
+# Required-Stop:        $remote_fs $syslog
+# Default-Start:        2 3 4 5
+# Default-Stop:         0 1 6
+# Short-Description:    DATUM Gateway
+### END INIT INFO
+
+set -e
+
+USER="bitcoin"
+CONFFILE="/etc/datum-gateway/datum_gateway_config.json"
+BINPATH="/usr/bin/datum_gateway"
+PIDFILE="/run/datum_gateway.pid"
+
+. /lib/lsb/init-functions
+
+if ! test -f $BINPATH; then
+    echo "datum_gateway missing!"
+fi
+
+if ! test -f $CONFFILE; then
+    echo "datum_gateway_config.json file missing!"
+fi
+
+start() {
+        log_daemon_msg "Starting DATUM Gateway" "datum_gateway" || true
+        if start-stop-daemon --start --quiet --make-pidfile --background --pidfile $PIDFILE --exec $BINPATH --chuid $USER -- -c $CONFFILE; then
+            log_end_msg 0 || true
+        else
+            log_end_msg 1 || true
+        fi
+}
+
+stop() {
+        log_daemon_msg "Stoping DATUM Gateway" "datum_gateway" || true
+        if start-stop-daemon --stop --quiet --pidfile $PIDFILE --chuid $USER --exec $BINPATH; then
+            log_end_msg 0 || true
+        else
+            log_end_msg 1 || true
+        fi
+}
+
+case "$1" in
+  start)
+        start
+        ;;
+  stop)
+        stop
+        ;;
+  status)
+        status_of_proc -p $PIDFILE $BINPATH datum_gateway
+        ;;
+  restart|force-reload)
+        log_daemon_msg "Stoping DATUM Gateway" "datum_gateway" || true
+        if start-stop-daemon --stop --quiet --pidfile $PIDFILE --chuid $USER --retry 300 --exec $BINPATH; then
+            log_end_msg 0 || true
+        else
+            log_end_msg 1 || true
+        fi
+        start
+        ;;
+  *)
+        echo $"Usage: $0 {start|stop|restart|force-reload|status}"
+        exit 1
+esac
+
+exit 0

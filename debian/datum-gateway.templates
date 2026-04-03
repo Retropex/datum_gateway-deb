@@ -8,3 +8,8 @@ Template: datum-gateway/password
 Type: note
 _Description: Password for the API: ${PASSWORD}
  This password will be asked when accessing the web UI
+
+Template: datum-gateway/log
+Type: boolean
+_Description: Do you want to enable logs in /var/log/datum-gateway ?
+ This is particularly useful for system that doesn't use systemd.
