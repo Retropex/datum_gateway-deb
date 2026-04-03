@@ -1,0 +1,61 @@
+# Translation of datum-gateway debconf templates to Dutch.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the datum-gateway package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Frans Spiesschaert <Frans.Spiesschaert@yucom.be>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: datum-gateway_0.4.1~beta-1\n"
+"Report-Msgid-Bugs-To: datum-gateway@packages.debian.org\n"
+"POT-Creation-Date: 2026-04-03 15:15+0000\n"
+"PO-Revision-Date: 2026-03-18 21:39+0100\n"
+"Last-Translator: Frans Spiesschaert <Frans.Spiesschaert@yucom.be>\n"
+"Language-Team: Debian Dutch l10n Team <debian-l10n-dutch@lists.debian.org>\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.6\n"
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:1001
+msgid "The Bitcoin address used for mining:"
+msgstr "Het Bitcoin-adres dat wordt gebruikt voor het minen:"
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:1001
+msgid ""
+"By default, this Bitcoin address is overridden by the usernames of miners,  "
+"meaning it is used solely as a fallback in the event of a pool disconnection."
+msgstr ""
+"Standaard wordt dit Bitcoin-adres overschreven door de gebruikersnaam van "
+"miners, wat betekent dat het uitsluitend als noodoplossing wordt gebruikt in "
+"het geval dat de verbinding met de pool wordt verbroken."
+
+#. Type: note
+#. Description
+#: ../datum-gateway.templates:2001
+msgid "Password for the API: ${PASSWORD}"
+msgstr "Wachtwoord voor de API: ${PASSWORD}"
+
+#. Type: note
+#. Description
+#: ../datum-gateway.templates:2001
+msgid "This password will be asked when accessing the web UI"
+msgstr "Dit wachtwoord zal gevraagd worden bij het openen van de webinterface."
+
+#. Type: boolean
+#. Description
+#: ../datum-gateway.templates:3001
+msgid "Do you want to enable logs in /var/log/datum-gateway ?"
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../datum-gateway.templates:3001
+msgid "This is particularly useful for system that doesn't use systemd."
+msgstr ""
