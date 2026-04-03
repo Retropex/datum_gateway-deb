@@ -1,4 +1,4 @@
-version=5
+Version: 5
 
 Source: https://github.com/OCEAN-xyz/datum_gateway/tags
 Matching-Pattern: .*/v?(\d.*)@ARCHIVE_EXT@
