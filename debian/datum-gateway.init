@@ -2,14 +2,12 @@
 
 ### BEGIN INIT INFO
 # Provides:             datum-gateway
-# Required-Start:       $remote_fs $syslog bitcoin-knots
-# Required-Stop:        $remote_fs $syslog
+# Required-Start:       $local_fs $remote_fs $network $syslog $named bitcoin-knots
+# Required-Stop:        $local_fs $remote_fs $network $syslog $named
 # Default-Start:        2 3 4 5
 # Default-Stop:         0 1 6
 # Short-Description:    DATUM Gateway
 ### END INIT INFO
-
-set -e
 
 USER="bitcoin"
 CONFFILE="/etc/datum-gateway/datum_gateway_config.json"
@@ -20,10 +18,12 @@ PIDFILE="/run/datum_gateway.pid"
 
 if ! test -f $BINPATH; then
     echo "datum_gateway missing!"
+    exit 1
 fi
 
 if ! test -f $CONFFILE; then
     echo "datum_gateway_config.json file missing!"
+    exit 1
 fi
 
 start() {
@@ -36,7 +36,7 @@ start() {
 }
 
 stop() {
-        log_daemon_msg "Stoping DATUM Gateway" "datum_gateway" || true
+        log_daemon_msg "Stopping DATUM Gateway" "datum_gateway" || true
         if start-stop-daemon --stop --quiet --pidfile $PIDFILE --chuid $USER --exec $BINPATH; then
             log_end_msg 0 || true
         else
@@ -55,7 +55,7 @@ case "$1" in
         status_of_proc -p $PIDFILE $BINPATH datum_gateway
         ;;
   restart|force-reload)
-        log_daemon_msg "Stoping DATUM Gateway" "datum_gateway" || true
+        log_daemon_msg "Stopping DATUM Gateway" "datum_gateway" || true
         if start-stop-daemon --stop --quiet --pidfile $PIDFILE --chuid $USER --retry 300 --exec $BINPATH; then
             log_end_msg 0 || true
         else
