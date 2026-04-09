@@ -8,6 +8,12 @@ case "$1" in
     if [ -d /etc/datum-gateway ]; then
       rm -rf /etc/datum-gateway
     fi
+
+    for i in /var/log/datum-gateway; do
+        if dpkg-statoverride --list $i >/dev/null 2>&1; then
+            dpkg-statoverride --remove $i
+        fi
+    done
     ;;
     
   upgrade|remove|failed-upgrade|abort-install|abort-upgrade|disappear)
