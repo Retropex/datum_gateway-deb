@@ -53,6 +53,18 @@ case "$1" in
     fi
   fi
 
+  if [ -f /etc/bitcoin/bitcoin.conf ]; then
+    db_get datum-gateway/blocknotify || RET=
+    if [ "$RET" = "true" ]; then
+      if grep -s -q "#blocknotify=<cmd>" /etc/bitcoin/bitcoin.conf; then
+        sed -i 's/#blocknotify=<cmd>/blocknotify=killall -USR1 datum_gateway/' /etc/bitcoin/bitcoin.conf
+        invoke-rc.d bitcoin-knots restart || true
+      else
+        echo -e "\e[1;33m Info:\e[0m Couldn't configure blocknotify automatically, please add \"blocknotify=killall -USR1 datum_gateway\" to your bitcoin.conf" >&2
+      fi
+    fi
+  fi
+
   db_stop
   ;;
 esac

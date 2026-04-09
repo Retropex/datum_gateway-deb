@@ -13,3 +13,8 @@ Template: datum-gateway/log
 Type: boolean
 _Description: Do you want to enable logs in /var/log/datum-gateway ?
  This is particularly useful for system that doesn't use systemd.
+
+Template: datum-gateway/blocknotify
+Type: boolean
+_Description: Do you want to add the blocknotify option in the bitcoin.conf?
+ This is very highly recommended to avoid mining stale work.

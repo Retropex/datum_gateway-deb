@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: datum-gateway\n"
 "Report-Msgid-Bugs-To: datum-gateway@packages.debian.org\n"
-"POT-Creation-Date: 2026-04-03 15:15+0000\n"
+"POT-Creation-Date: 2026-04-09 16:45+0200\n"
 "PO-Revision-Date: 2026-03-11 17:42+0100\n"
 "Last-Translator: Camaleón <noelamac@gmail.com>\n"
 "Language-Team: Debian Spanish <debian-l10n-spanish@lists.debian.org>\n"
@@ -57,4 +57,16 @@ msgstr ""
 #. Description
 #: ../datum-gateway.templates:3001
 msgid "This is particularly useful for system that doesn't use systemd."
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../datum-gateway.templates:4001
+msgid "Do you want to add the blocknotify option in the bitcoin.conf?"
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../datum-gateway.templates:4001
+msgid "This is very highly recommended to avoid mining stale work."
 msgstr ""
