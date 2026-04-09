@@ -14,6 +14,8 @@ CONFFILE="/etc/datum-gateway/datum_gateway_config.json"
 BINPATH="/usr/bin/datum_gateway"
 PIDFILE="/run/datum_gateway.pid"
 
+set -e
+
 . /lib/lsb/init-functions
 
 if ! test -f $BINPATH; then
