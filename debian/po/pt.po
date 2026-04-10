@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: datum-gateway 0.4.1~beta-1\n"
 "Report-Msgid-Bugs-To: datum-gateway@packages.debian.org\n"
-"POT-Creation-Date: 2026-04-09 16:45+0200\n"
+"POT-Creation-Date: 2026-04-10 12:01+0200\n"
 "PO-Revision-Date: 2026-03-12 19:22+0000\n"
 "Last-Translator: Américo Monteiro <a_monteiro@gmx.com>\n"
 "Language-Team: Portuguese <>\n"
@@ -69,4 +69,18 @@ msgstr ""
 #. Description
 #: ../datum-gateway.templates:4001
 msgid "This is very highly recommended to avoid mining stale work."
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:5001
+msgid "The tag used in the coinbase transaction:"
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:5001
+msgid ""
+"This tag will be added in the coinbase transaction, it can be anything.  "
+"Leave it blank if you want to use the default"
 msgstr ""

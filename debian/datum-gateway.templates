@@ -18,3 +18,9 @@ Template: datum-gateway/blocknotify
 Type: boolean
 _Description: Do you want to add the blocknotify option in the bitcoin.conf?
  This is very highly recommended to avoid mining stale work.
+
+Template: datum-gateway/coinbase-tag-secondary
+Type: string
+_Description: The tag used in the coinbase transaction:
+ This tag will be added in the coinbase transaction, it can be anything. 
+ Leave it blank if you want to use the default

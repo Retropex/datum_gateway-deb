@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: datum-gateway\n"
 "Report-Msgid-Bugs-To: datum-gateway@packages.debian.org\n"
-"POT-Creation-Date: 2026-04-09 16:45+0200\n"
+"POT-Creation-Date: 2026-04-10 12:01+0200\n"
 "PO-Revision-Date: 2025-10-22 10:41+0000\n"
 "Last-Translator: Léo Haf <leo@haf.ovh>\n"
 "Language-Team: French <traduc@traduc.org>\n"
@@ -64,10 +64,29 @@ msgstr ""
 #. Description
 #: ../datum-gateway.templates:4001
 msgid "Do you want to add the blocknotify option in the bitcoin.conf?"
-msgstr "Souhaitez-vous ajouter l'option blocknotify dans le fichier bitcoin.conf ?"
+msgstr ""
+"Souhaitez-vous ajouter l'option blocknotify dans le fichier bitcoin.conf ?"
 
 #. Type: boolean
 #. Description
 #: ../datum-gateway.templates:4001
 msgid "This is very highly recommended to avoid mining stale work."
-msgstr "Ceci est fortement recommandé pour éviter de miner du travail obsolète."
+msgstr ""
+"Ceci est fortement recommandé pour éviter de miner du travail obsolète."
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:5001
+msgid "The tag used in the coinbase transaction:"
+msgstr "Le tag utilsé pour la transaction coinbase:"
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:5001
+msgid ""
+"This tag will be added in the coinbase transaction, it can be anything.  "
+"Leave it blank if you want to use the default"
+msgstr ""
+"Ce tag sera ajoutée à la transaction coinbase, elle peut contenir n'importe "
+"quelle valeur. Laissez ce champ vide si vous souhaitez utiliser la valeur "
+"par défaut."

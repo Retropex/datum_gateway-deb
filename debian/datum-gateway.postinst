@@ -34,6 +34,17 @@ case "$1" in
     else
       echo -e "\e[1;33m Info:\e[0m No Bitcoin address entered, you can still configure it in the config file/GUI." >&2
     fi
+    unset RET
+    
+    db_get datum-gateway/coinbase-tag-secondary || RET=
+    if [ "$RET" ]; then
+      runuser -u $USER -- jq --arg TAG "$RET" '.mining.coinbase_tag_secondary = $TAG' /etc/datum-gateway/datum_gateway_config.json > /etc/datum-gateway/datum_gateway_config.json.tmp \
+        && mv /etc/datum-gateway/datum_gateway_config.json.tmp /etc/datum-gateway/datum_gateway_config.json
+    else
+      echo -e "\e[1;33m Info:\e[0m No tag entered, using default." >&2
+      runuser -u $USER -- jq '.mining.coinbase_tag_secondary = "DATUM User"' /etc/datum-gateway/datum_gateway_config.json > /etc/datum-gateway/datum_gateway_config.json.tmp \
+        && mv /etc/datum-gateway/datum_gateway_config.json.tmp /etc/datum-gateway/datum_gateway_config.json
+    fi
   fi
 
   if [ -d /var/log/datum-gateway ]; then
@@ -47,7 +58,7 @@ case "$1" in
         && mv /etc/datum-gateway/datum_gateway_config.json.tmp /etc/datum-gateway/datum_gateway_config.json
       runuser -u $USER -- jq '.logger.log_file = "/var/log/datum-gateway/datum.log"' /etc/datum-gateway/datum_gateway_config.json > /etc/datum-gateway/datum_gateway_config.json.tmp \
         && mv /etc/datum-gateway/datum_gateway_config.json.tmp /etc/datum-gateway/datum_gateway_config.json
-    else
+    elif [ "$RET" = "false" ]; then
       runuser -u $USER -- jq '.logger.log_to_file = false' /etc/datum-gateway/datum_gateway_config.json > /etc/datum-gateway/datum_gateway_config.json.tmp \
         && mv /etc/datum-gateway/datum_gateway_config.json.tmp /etc/datum-gateway/datum_gateway_config.json
     fi
@@ -59,6 +70,8 @@ case "$1" in
       if grep -s -q "#blocknotify=<cmd>" /etc/bitcoin/bitcoin.conf; then
         sed -i 's/#blocknotify=<cmd>/blocknotify=killall -USR1 datum_gateway/' /etc/bitcoin/bitcoin.conf
         invoke-rc.d bitcoin-knots restart || true
+      elif grep -s -q "blocknotify=killall -USR1 datum_gateway" /etc/bitcoin/bitcoin.conf; then
+        echo -e "\e[1;33m Info:\e[0m blocknotify is already properly configured">&2
       else
         echo -e "\e[1;33m Info:\e[0m Couldn't configure blocknotify automatically, please add \"blocknotify=killall -USR1 datum_gateway\" to your bitcoin.conf" >&2
       fi
