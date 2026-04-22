@@ -3,6 +3,13 @@
 set -e
 
 case "$1" in
+  remove)
+    for i in /var/log/datum-gateway; do
+      if dpkg-statoverride --list $i >/dev/null 2>&1; then
+          dpkg-statoverride --remove $i
+      fi
+    done
+    ;;
   purge)
     
     if [ -d /etc/datum-gateway ]; then
@@ -10,13 +17,13 @@ case "$1" in
     fi
 
     for i in /var/log/datum-gateway; do
-        if dpkg-statoverride --list $i >/dev/null 2>&1; then
-            dpkg-statoverride --remove $i
-        fi
+      if dpkg-statoverride --list $i >/dev/null 2>&1; then
+          dpkg-statoverride --remove $i
+      fi
     done
     ;;
     
-  upgrade|remove|failed-upgrade|abort-install|abort-upgrade|disappear)
+  upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
     ;;
 esac
 

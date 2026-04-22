@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: datum-gateway\n"
 "Report-Msgid-Bugs-To: datum-gateway@packages.debian.org\n"
-"POT-Creation-Date: 2026-04-10 12:01+0200\n"
+"POT-Creation-Date: 2026-04-22 15:50+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -79,4 +79,41 @@ msgstr ""
 msgid ""
 "This tag will be added in the coinbase transaction, it can be anything.  "
 "Leave it blank if you want to use the default"
+msgstr ""
+
+#. Type: note
+#. Description
+#: ../datum-gateway.templates:6001
+msgid "blocknotify is already properly configured"
+msgstr ""
+
+#. Type: note
+#. Description
+#: ../datum-gateway.templates:6001
+msgid "blocknotify is already properly configured, it won't be setup twice."
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../datum-gateway.templates:7001
+msgid "Couldn't configure blocknotify automatically"
+msgstr ""
+
+#. Type: error
+#. Description
+#: ../datum-gateway.templates:7001
+msgid ""
+"please add \"blocknotify=killall -USR1 datum_gateway\" to your bitcoin.conf\""
+msgstr ""
+
+#. Type: note
+#. Description
+#: ../datum-gateway.templates:8001
+msgid "No Bitcoin address entered"
+msgstr ""
+
+#. Type: note
+#. Description
+#: ../datum-gateway.templates:8001
+msgid "you can still configure it in the config file/GUI."
 msgstr ""

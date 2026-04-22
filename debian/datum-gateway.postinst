@@ -22,7 +22,7 @@ case "$1" in
       && mv /etc/datum-gateway/datum_gateway_config.json.tmp /etc/datum-gateway/datum_gateway_config.json
     db_subst datum-gateway/password PASSWORD "$PASSWORD"
     db_fset datum-gateway/password seen false
-    db_input critical datum-gateway/password || true
+    db_input high datum-gateway/password || true
     db_go
   fi
   
@@ -32,7 +32,8 @@ case "$1" in
       runuser -u $USER -- jq --arg BTCADDRESS "$RET" '.mining.pool_address = $BTCADDRESS' /etc/datum-gateway/datum_gateway_config.json > /etc/datum-gateway/datum_gateway_config.json.tmp \
         && mv /etc/datum-gateway/datum_gateway_config.json.tmp /etc/datum-gateway/datum_gateway_config.json
     else
-      echo -e "\e[1;33m Info:\e[0m No Bitcoin address entered, you can still configure it in the config file/GUI." >&2
+      db_input critical datum-gateway/bitcoin-address-blank || true
+      db_go || true
     fi
     unset RET
     
@@ -41,10 +42,10 @@ case "$1" in
       runuser -u $USER -- jq --arg TAG "$RET" '.mining.coinbase_tag_secondary = $TAG' /etc/datum-gateway/datum_gateway_config.json > /etc/datum-gateway/datum_gateway_config.json.tmp \
         && mv /etc/datum-gateway/datum_gateway_config.json.tmp /etc/datum-gateway/datum_gateway_config.json
     else
-      echo -e "\e[1;33m Info:\e[0m No tag entered, using default." >&2
       runuser -u $USER -- jq '.mining.coinbase_tag_secondary = "DATUM User"' /etc/datum-gateway/datum_gateway_config.json > /etc/datum-gateway/datum_gateway_config.json.tmp \
         && mv /etc/datum-gateway/datum_gateway_config.json.tmp /etc/datum-gateway/datum_gateway_config.json
     fi
+    unset RET
   fi
 
   if [ -d /var/log/datum-gateway ]; then
@@ -62,6 +63,7 @@ case "$1" in
       runuser -u $USER -- jq '.logger.log_to_file = false' /etc/datum-gateway/datum_gateway_config.json > /etc/datum-gateway/datum_gateway_config.json.tmp \
         && mv /etc/datum-gateway/datum_gateway_config.json.tmp /etc/datum-gateway/datum_gateway_config.json
     fi
+    unset RET
   fi
 
   if [ -f /etc/bitcoin/bitcoin.conf ]; then
@@ -71,11 +73,14 @@ case "$1" in
         sed -i 's/#blocknotify=<cmd>/blocknotify=killall -USR1 datum_gateway/' /etc/bitcoin/bitcoin.conf
         invoke-rc.d bitcoin-knots restart || true
       elif grep -s -q "blocknotify=killall -USR1 datum_gateway" /etc/bitcoin/bitcoin.conf; then
-        echo -e "\e[1;33m Info:\e[0m blocknotify is already properly configured">&2
+        db_input high datum-gateway/blocknotify-already | true
+        db_go || true
       else
-        echo -e "\e[1;33m Info:\e[0m Couldn't configure blocknotify automatically, please add \"blocknotify=killall -USR1 datum_gateway\" to your bitcoin.conf" >&2
+        db_input high datum-gateway/blocknotify-fail || true
+        db_go || true
       fi
     fi
+    unset RET
   fi
 
   db_stop
