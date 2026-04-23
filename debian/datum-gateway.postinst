@@ -102,12 +102,17 @@ case "$1" in
   if [ -f /etc/bitcoin/bitcoin.conf ]; then
     db_get datum-gateway/blocknotify || RET=
     if [ "$RET" = "true" ]; then
-      if grep -s -q "#blocknotify=<cmd>" /etc/bitcoin/bitcoin.conf; then
-        sed -i 's/#blocknotify=<cmd>/blocknotify=killall -USR1 datum_gateway/' /etc/bitcoin/bitcoin.conf
+      if grep -s -q -E '^#?blocknotify=' /etc/bitcoin/bitcoin.conf; then
+        sed -i -E "/^#?blocknotify=/c\blocknotify=killall -USR1 datum_gateway" /etc/bitcoin/bitcoin.conf
         invoke-rc.d bitcoin-knots restart || true
-      elif grep -s -q "blocknotify=killall -USR1 datum_gateway" /etc/bitcoin/bitcoin.conf; then
-        db_input high datum-gateway/blocknotify-already | true
+      else
+        db_input high datum-gateway/blocknotify-fail || true
         db_go || true
+      fi
+    elif [ "$RET" = "false" ]; then
+      if grep -s -q -E '^#?blocknotify=' /etc/bitcoin/bitcoin.conf; then
+        sed -i -E "/^#?blocknotify=/c\#blocknotify=<cmd>" /etc/bitcoin/bitcoin.conf
+        invoke-rc.d bitcoin-knots restart || true
       else
         db_input high datum-gateway/blocknotify-fail || true
         db_go || true
