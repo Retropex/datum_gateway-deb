@@ -7,6 +7,17 @@ USER="bitcoin"
 # Source debconf library
 . /usr/share/debconf/confmodule
 
+update_conf_param () {
+  local param="$1"
+  local json="$2"
+  db_get "datum-gateway/$param" || RET=
+  if [ "$RET" ]; then
+    runuser -u $USER -- jq --argjson PARAM "$RET" --arg JSON "$json" 'setpath($JSON | split("."); $PARAM)' /etc/datum-gateway/datum_gateway_config.json > /etc/datum-gateway/datum_gateway_config.json.tmp \
+        && mv /etc/datum-gateway/datum_gateway_config.json.tmp /etc/datum-gateway/datum_gateway_config.json
+  fi
+  unset RET
+}
+
 case "$1" in
   configure)
   
@@ -46,6 +57,28 @@ case "$1" in
         && mv /etc/datum-gateway/datum_gateway_config.json.tmp /etc/datum-gateway/datum_gateway_config.json
     fi
     unset RET
+    
+    db_get datum-gateway/coinbase_tag_primary || RET=
+    if [ "$RET" ]; then
+      runuser -u $USER -- jq --arg TAG "$RET" '.mining.coinbase_tag_primary = $TAG' /etc/datum-gateway/datum_gateway_config.json > /etc/datum-gateway/datum_gateway_config.json.tmp \
+        && mv /etc/datum-gateway/datum_gateway_config.json.tmp /etc/datum-gateway/datum_gateway_config.json
+    else
+      runuser -u $USER -- jq '.mining.coinbase_tag_primary = "DATUM Gateway"' /etc/datum-gateway/datum_gateway_config.json > /etc/datum-gateway/datum_gateway_config.json.tmp \
+        && mv /etc/datum-gateway/datum_gateway_config.json.tmp /etc/datum-gateway/datum_gateway_config.json
+    fi
+    unset RET
+    
+    update_conf_param work_update_seconds bitcoind.work_update_seconds
+    update_conf_param listen_port stratum.listen_port
+    update_conf_param max_clients_per_thread stratum.max_clients_per_thread
+    update_conf_param max_threads stratum.max_threads
+    update_conf_param max_clients stratum.max_clients
+    update_conf_param vardiff_min stratum.vardiff_min
+    update_conf_param modify_conf api.modify_conf
+    update_conf_param log_level_file logger.log_level_file
+    update_conf_param pool_pass_workers datum.pool_pass_workers
+    update_conf_param pool_pass_full_users datum.pool_pass_full_users
+    update_conf_param pooled_mining_only datum.pooled_mining_only
   fi
 
   if [ -d /var/log/datum-gateway ]; then

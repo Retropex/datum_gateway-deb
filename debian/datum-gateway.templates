@@ -23,7 +23,7 @@ _Description: Do you want to add the blocknotify option in the bitcoin.conf?
 
 Template: datum-gateway/coinbase-tag-secondary
 Type: string
-_Description: The tag used in the coinbase transaction:
+_Description: The secondary tag used in the coinbase transaction:
  This tag will be added in the coinbase transaction, it can be anything. 
  Leave it blank if you want to use the default
 
@@ -41,3 +41,69 @@ Template: datum-gateway/bitcoin-address-blank
 Type: note
 _Description: No Bitcoin address entered
  you can still configure it in the config file/GUI.
+
+Template: datum-gateway/work_update_seconds
+Type: string
+_Description: Work update interval in seconds:
+ How many seconds between normal work updates.
+ Must be a number between 5 and 120.
+
+Template: datum-gateway/listen_port
+Type: string
+_Description: Listen port:
+ Listening port for Stratum Gateway.
+ Must be a number between 5 and 120.
+
+Template: datum-gateway/max_clients_per_thread
+Type: string
+_Description: Maximum clients per Stratum server thread:
+ Must be a number higher than 0.
+
+Template: datum-gateway/max_threads
+Type: string
+_Description: Maximum Stratum server threads:
+ Must be a number between 1 and 64.
+
+Template: datum-gateway/max_clients
+Type: string
+_Description: Maximum clients:
+ Maximum total Stratum clients before rejecting connections.
+ Must be a number higher than 0.
+
+Template: datum-gateway/vardiff_min
+Type: string
+_Description: Work difficulty floor:
+ Must be a power of two.
+
+Template: datum-gateway/coinbase_tag_primary
+Type: string
+_Description: The primary tag used in the coinbase transaction:
+ This tag will be added in the coinbase transaction, it can be anything.
+ The primary tag will be overridden by the pool if mining in pooled mode.
+
+Template: datum-gateway/modify_conf
+Type: boolean
+_Description: Should the config be modifiable from the dashboard?
+ Enable modifying the config file from API/dashboard.
+
+Template: datum-gateway/log_level_file
+Type: string
+_Description: Log level for log file:
+ Minimum log level for log file messages 
+ (0=All, 1=Debug, 2=Info, 3=Warn, 4=Error, 5=Fatal)
+
+Template: datum-gateway/pool_pass_workers
+Type: boolean
+_Description: Pass workers to pool?
+ Pass stratum miner usernames as sub-worker names to the pool.
+
+Template: datum-gateway/pool_pass_full_users
+Type: boolean
+_Description: Pass stratum miner usernames as raw usernames to the pool?
+ Use if putting multiple payout addresses on miners behind this gateway.
+
+Template: datum-gateway/pooled_mining_only
+Type: boolean
+_Description: Pooled mining only?
+ If the DATUM pool server becomes unavailable, terminate miner connections 
+ (otherwise, 100% of any blocks you find pay mining.pool_address)
