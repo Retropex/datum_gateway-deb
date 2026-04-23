@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: datum-gateway\n"
 "Report-Msgid-Bugs-To: datum-gateway@packages.debian.org\n"
-"POT-Creation-Date: 2026-04-22 15:50+0200\n"
+"POT-Creation-Date: 2026-04-23 11:59+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -70,7 +70,7 @@ msgstr ""
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:5001
-msgid "The tag used in the coinbase transaction:"
+msgid "The secondary tag used in the coinbase transaction:"
 msgstr ""
 
 #. Type: string
@@ -116,4 +116,160 @@ msgstr ""
 #. Description
 #: ../datum-gateway.templates:8001
 msgid "you can still configure it in the config file/GUI."
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:9001
+msgid "Work update interval in seconds:"
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:9001
+msgid ""
+"How many seconds between normal work updates. Must be a number between 5 and "
+"120."
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:10001
+msgid "Listen port:"
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:10001
+msgid ""
+"Listening port for Stratum Gateway. Must be a number between 5 and 65535."
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:11001
+msgid "Maximum clients per Stratum server thread:"
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:11001
+msgid "Must be a number higher than 0."
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:12001
+msgid "Maximum Stratum server threads:"
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:12001
+msgid "Must be a number between 1 and 64."
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:13001
+msgid "Maximum clients:"
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:13001
+msgid ""
+"Maximum total Stratum clients before rejecting connections. Must be a number "
+"higher than 0."
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:14001
+msgid "Work difficulty floor:"
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:14001
+msgid "Must be a power of two."
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:15001
+msgid "The primary tag used in the coinbase transaction:"
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:15001
+msgid ""
+"This tag will be added in the coinbase transaction, it can be anything. The "
+"primary tag will be overridden by the pool if mining in pooled mode."
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../datum-gateway.templates:16001
+msgid "Should the config be modifiable from the dashboard?"
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../datum-gateway.templates:16001
+msgid "Enable modifying the config file from API/dashboard."
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:17001
+msgid "Log level for log file:"
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:17001
+msgid ""
+"Minimum log level for log file messages  (0=All, 1=Debug, 2=Info, 3=Warn, "
+"4=Error, 5=Fatal)"
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../datum-gateway.templates:18001
+msgid "Pass workers to pool?"
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../datum-gateway.templates:18001
+msgid "Pass stratum miner usernames as sub-worker names to the pool."
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../datum-gateway.templates:19001
+msgid "Pass stratum miner usernames as raw usernames to the pool?"
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../datum-gateway.templates:19001
+msgid "Use if putting multiple payout addresses on miners behind this gateway."
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../datum-gateway.templates:20001
+msgid "Pooled mining only?"
+msgstr ""
+
+#. Type: boolean
+#. Description
+#: ../datum-gateway.templates:20001
+#, no-c-format
+msgid ""
+"If the DATUM pool server becomes unavailable, terminate miner connections  "
+"(otherwise, 100% of any blocks you find pay mining.pool_address)"
 msgstr ""

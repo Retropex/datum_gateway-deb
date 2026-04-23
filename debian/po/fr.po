@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: datum-gateway\n"
 "Report-Msgid-Bugs-To: datum-gateway@packages.debian.org\n"
-"POT-Creation-Date: 2026-04-22 15:50+0200\n"
+"POT-Creation-Date: 2026-04-23 11:59+0200\n"
 "PO-Revision-Date: 2025-10-22 10:41+0000\n"
 "Last-Translator: Léo Haf <leo@haf.ovh>\n"
 "Language-Team: French <traduc@traduc.org>\n"
@@ -77,8 +77,8 @@ msgstr ""
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:5001
-msgid "The tag used in the coinbase transaction:"
-msgstr "Le tag utilsé pour la transaction coinbase:"
+msgid "The secondary tag used in the coinbase transaction:"
+msgstr "Le tag secondaire utilsé pour la transaction coinbase :"
 
 #. Type: string
 #. Description
@@ -133,3 +133,180 @@ msgid "you can still configure it in the config file/GUI."
 msgstr ""
 "Vous pouvez toujours le configurer dans le fichier de configuration/"
 "l'interface graphique."
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:9001
+msgid "Work update interval in seconds:"
+msgstr "Intervalle de mise à jour des tâches en secondes :"
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:9001
+msgid ""
+"How many seconds between normal work updates. Must be a number between 5 and "
+"120."
+msgstr ""
+"Nombre de secondes entre les mises à jour normales. Doit être un nombre "
+"compris entre 5 et 120."
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:10001
+msgid "Listen port:"
+msgstr "Port d'écoute:"
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:10001
+msgid ""
+"Listening port for Stratum Gateway. Must be a number between 5 and 65535."
+msgstr ""
+"Port d'écoute pour la passerelle Stratum. Doit être un nombre compris entre "
+"5 et 65535."
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:11001
+msgid "Maximum clients per Stratum server thread:"
+msgstr "Nombre maximal de clients par thread du serveur Stratum :"
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:11001
+msgid "Must be a number higher than 0."
+msgstr "Doit être un nombre supérieur à 0."
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:12001
+msgid "Maximum Stratum server threads:"
+msgstr "Nombre maximal de threads du serveur Stratum :"
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:12001
+msgid "Must be a number between 1 and 64."
+msgstr "Doit être un nombre compris entre 1 et 64."
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:13001
+msgid "Maximum clients:"
+msgstr "Nombre maximum de clients :"
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:13001
+msgid ""
+"Maximum total Stratum clients before rejecting connections. Must be a number "
+"higher than 0."
+msgstr ""
+"Nombre maximal de clients Stratum avant le rejet des connexions. Doit être "
+"supérieur à 0."
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:14001
+msgid "Work difficulty floor:"
+msgstr "Niveau de difficulté du travail :"
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:14001
+msgid "Must be a power of two."
+msgstr "Doit être une puissance de deux."
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:15001
+msgid "The primary tag used in the coinbase transaction:"
+msgstr "Le tag primaire utilsé pour la transaction coinbase:"
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:15001
+msgid ""
+"This tag will be added in the coinbase transaction, it can be anything. The "
+"primary tag will be overridden by the pool if mining in pooled mode."
+msgstr ""
+"Ce tag sera ajoutée à la transaction coinbase, elle peut contenir n'importe "
+"quelle valeur. Laissez ce champ vide si vous souhaitez utiliser la valeur "
+"par défaut."
+
+#. Type: boolean
+#. Description
+#: ../datum-gateway.templates:16001
+msgid "Should the config be modifiable from the dashboard?"
+msgstr "La configuration doit-elle être modifiable depuis le tableau de bord ?"
+
+#. Type: boolean
+#. Description
+#: ../datum-gateway.templates:16001
+msgid "Enable modifying the config file from API/dashboard."
+msgstr ""
+"Activer la modification du fichier de configuration depuis l'API/le tableau "
+"de bord."
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:17001
+msgid "Log level for log file:"
+msgstr "Niveau de journalisation du fichier journal :"
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:17001
+msgid ""
+"Minimum log level for log file messages  (0=All, 1=Debug, 2=Info, 3=Warn, "
+"4=Error, 5=Fatal)"
+msgstr ""
+"Niveau de journalisation minimal pour les messages du fichier journal "
+"(0=Tous, 1=Débogage, 2=Info, 3=Avertissement, 4=Erreur, 5=Fatal)"
+
+#. Type: boolean
+#. Description
+#: ../datum-gateway.templates:18001
+msgid "Pass workers to pool?"
+msgstr "Transférer les clients à la pool ?"
+
+#. Type: boolean
+#. Description
+#: ../datum-gateway.templates:18001
+msgid "Pass stratum miner usernames as sub-worker names to the pool."
+msgstr ""
+"Transmettez les noms d'utilisateur des mineurs de stratum comme noms de sous-"
+"travailleurs au pool."
+
+#. Type: boolean
+#. Description
+#: ../datum-gateway.templates:19001
+msgid "Pass stratum miner usernames as raw usernames to the pool?"
+msgstr ""
+"Transmettre les noms d'utilisateur des mineurs Stratum tels quels au pool ?"
+
+#. Type: boolean
+#. Description
+#: ../datum-gateway.templates:19001
+msgid "Use if putting multiple payout addresses on miners behind this gateway."
+msgstr ""
+"À utiliser si vous configurez plusieurs adresses de paiement sur les mineurs "
+"situés derrière cette passerelle."
+
+#. Type: boolean
+#. Description
+#: ../datum-gateway.templates:20001
+msgid "Pooled mining only?"
+msgstr "Minage en pool uniquement ?"
+
+#. Type: boolean
+#. Description
+#: ../datum-gateway.templates:20001
+#, no-c-format
+msgid ""
+"If the DATUM pool server becomes unavailable, terminate miner connections  "
+"(otherwise, 100% of any blocks you find pay mining.pool_address)"
+msgstr ""
+"Si le serveur du pool DATUM devient indisponible, mettez fin aux connexions "
+"des mineurs (sinon, 100 % des blocs trouvés seront payé à "
+"mining.pool_address)."

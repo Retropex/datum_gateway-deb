@@ -52,7 +52,7 @@ Template: datum-gateway/listen_port
 Type: string
 _Description: Listen port:
  Listening port for Stratum Gateway.
- Must be a number between 5 and 120.
+ Must be a number between 5 and 65535.
 
 Template: datum-gateway/max_clients_per_thread
 Type: string
