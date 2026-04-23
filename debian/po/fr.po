@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: datum-gateway\n"
 "Report-Msgid-Bugs-To: datum-gateway@packages.debian.org\n"
-"POT-Creation-Date: 2026-04-23 13:04+0200\n"
+"POT-Creation-Date: 2026-04-23 14:47+0200\n"
 "PO-Revision-Date: 2025-10-22 10:41+0000\n"
 "Last-Translator: Léo Haf <leo@haf.ovh>\n"
 "Language-Team: French <traduc@traduc.org>\n"
@@ -154,36 +154,49 @@ msgstr ""
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:10001
+msgid "Listen port for the API:"
+msgstr "Port d'écoute pour l'API:"
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:10001
+msgid "Listening port for the web API. Must be a number between 5 and 65535."
+msgstr ""
+"Port d'écoute pour l'API web. Doit être un nombre compris entre 5 et 65535."
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:11001
 msgid "Maximum clients per Stratum server thread:"
 msgstr "Nombre maximal de clients par thread du serveur Stratum :"
 
 #. Type: string
 #. Description
-#: ../datum-gateway.templates:10001
+#: ../datum-gateway.templates:11001
 msgid "Must be a number higher than 0."
 msgstr "Doit être un nombre supérieur à 0."
 
 #. Type: string
 #. Description
-#: ../datum-gateway.templates:11001
+#: ../datum-gateway.templates:12001
 msgid "Maximum Stratum server threads:"
 msgstr "Nombre maximal de threads du serveur Stratum :"
 
 #. Type: string
 #. Description
-#: ../datum-gateway.templates:11001
+#: ../datum-gateway.templates:12001
 msgid "Must be a number between 1 and 64."
 msgstr "Doit être un nombre compris entre 1 et 64."
 
 #. Type: string
 #. Description
-#: ../datum-gateway.templates:12001
+#: ../datum-gateway.templates:13001
 msgid "Maximum clients:"
 msgstr "Nombre maximum de clients :"
 
 #. Type: string
 #. Description
-#: ../datum-gateway.templates:12001
+#: ../datum-gateway.templates:13001
 msgid ""
 "Maximum total Stratum clients before rejecting connections. Must be a number "
 "higher than 0."
@@ -193,25 +206,25 @@ msgstr ""
 
 #. Type: string
 #. Description
-#: ../datum-gateway.templates:13001
+#: ../datum-gateway.templates:14001
 msgid "Work difficulty floor:"
 msgstr "Niveau de difficulté du travail :"
 
 #. Type: string
 #. Description
-#: ../datum-gateway.templates:13001
+#: ../datum-gateway.templates:14001
 msgid "Must be a power of two."
 msgstr "Doit être une puissance de deux."
 
 #. Type: string
 #. Description
-#: ../datum-gateway.templates:14001
+#: ../datum-gateway.templates:15001
 msgid "The primary tag used in the coinbase transaction:"
 msgstr "Le tag primaire utilsé pour la transaction coinbase:"
 
 #. Type: string
 #. Description
-#: ../datum-gateway.templates:14001
+#: ../datum-gateway.templates:15001
 msgid ""
 "This tag will be added in the coinbase transaction, it can be anything. The "
 "primary tag will be overridden by the pool if mining in pooled mode."
@@ -222,13 +235,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../datum-gateway.templates:15001
+#: ../datum-gateway.templates:16001
 msgid "Should the config be modifiable from the dashboard?"
 msgstr "La configuration doit-elle être modifiable depuis le tableau de bord ?"
 
 #. Type: boolean
 #. Description
-#: ../datum-gateway.templates:15001
+#: ../datum-gateway.templates:16001
 msgid "Enable modifying the config file from API/dashboard."
 msgstr ""
 "Activer la modification du fichier de configuration depuis l'API/le tableau "
@@ -236,13 +249,13 @@ msgstr ""
 
 #. Type: string
 #. Description
-#: ../datum-gateway.templates:16001
+#: ../datum-gateway.templates:17001
 msgid "Log level for log file:"
 msgstr "Niveau de journalisation du fichier journal :"
 
 #. Type: string
 #. Description
-#: ../datum-gateway.templates:16001
+#: ../datum-gateway.templates:17001
 msgid ""
 "Minimum log level for log file messages  (0=All, 1=Debug, 2=Info, 3=Warn, "
 "4=Error, 5=Fatal)"
@@ -252,13 +265,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../datum-gateway.templates:17001
+#: ../datum-gateway.templates:18001
 msgid "Pass workers to pool?"
 msgstr "Transférer les clients à la pool ?"
 
 #. Type: boolean
 #. Description
-#: ../datum-gateway.templates:17001
+#: ../datum-gateway.templates:18001
 msgid "Pass stratum miner usernames as sub-worker names to the pool."
 msgstr ""
 "Transmettez les noms d'utilisateur des mineurs de stratum comme noms de sous-"
@@ -266,14 +279,14 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../datum-gateway.templates:18001
+#: ../datum-gateway.templates:19001
 msgid "Pass stratum miner usernames as raw usernames to the pool?"
 msgstr ""
 "Transmettre les noms d'utilisateur des mineurs Stratum tels quels au pool ?"
 
 #. Type: boolean
 #. Description
-#: ../datum-gateway.templates:18001
+#: ../datum-gateway.templates:19001
 msgid "Use if putting multiple payout addresses on miners behind this gateway."
 msgstr ""
 "À utiliser si vous configurez plusieurs adresses de paiement sur les mineurs "
@@ -281,13 +294,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../datum-gateway.templates:19001
+#: ../datum-gateway.templates:20001
 msgid "Pooled mining only?"
 msgstr "Minage en pool uniquement ?"
 
 #. Type: boolean
 #. Description
-#: ../datum-gateway.templates:19001
+#: ../datum-gateway.templates:20001
 #, no-c-format
 msgid ""
 "If the DATUM pool server becomes unavailable, terminate miner connections  "

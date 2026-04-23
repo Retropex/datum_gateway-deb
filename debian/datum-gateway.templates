@@ -51,6 +51,13 @@ _Description: Listen port:
  Listening port for Stratum Gateway.
  Must be a number between 5 and 65535.
 
+Template: datum-gateway/listen_port-api
+Type: string
+Default: 7152
+_Description: Listen port for the API:
+ Listening port for the web API.
+ Must be a number between 5 and 65535.
+
 Template: datum-gateway/max_clients_per_thread
 Type: string
 Default: 2000

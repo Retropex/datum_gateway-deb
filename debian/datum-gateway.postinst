@@ -79,6 +79,14 @@ case "$1" in
     update_conf_param pool_pass_workers datum.pool_pass_workers
     update_conf_param pool_pass_full_users datum.pool_pass_full_users
     update_conf_param pooled_mining_only datum.pooled_mining_only
+    
+    # couldn't use update_conf_param since listen_port already exist for the stratum port
+    db_get datum-gateway/listen_port-api || RET=
+    if [ "$RET" ]; then
+      runuser -u $USER -- jq --argjson PARAM "$RET" --arg JSON "api.listen_port" 'setpath($JSON | split("."); $PARAM)' /etc/datum-gateway/datum_gateway_config.json > /etc/datum-gateway/datum_gateway_config.json.tmp \
+          && mv /etc/datum-gateway/datum_gateway_config.json.tmp /etc/datum-gateway/datum_gateway_config.json
+    fi
+    unset RET
   fi
 
   if [ -d /var/log/datum-gateway ]; then
