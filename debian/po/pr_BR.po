@@ -1,0 +1,45 @@
+# This file is distributed under the same license as the datum-gateway package.
+# Allythy <allythy@protonmail.com>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: datum-gateway_0.4.1~beta-2\n"
+"Report-Msgid-Bugs-To: datum-gateway@packages.debian.org\n"
+"POT-Creation-Date: 2025-10-24 09:33+0000\n"
+"PO-Revision-Date: 2026-04-23 14:24-0300\n"
+"Last-Translator: Allythy <allythy@protonmail.com>\n"
+"Language-Team: l10n portuguese <debian-l10n-portuguese@lists.debian.org>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.6\n"
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:1001
+msgid "The Bitcoin address used for mining:"
+msgstr "O endereço Bitcoin usado para mineração:"
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:1001
+msgid ""
+"By default, this Bitcoin address is overridden by the usernames of miners,  "
+"meaning it is used solely as a fallback in the event of a pool disconnection."
+msgstr ""
+"Por padrão, esse endereço Bitcoin é substituído pelos nomes de usuário(a) de "
+"quem minera, sendo usado exclusivamente como alternativa em caso de "
+"desconexão do pool."
+
+#. Type: note
+#. Description
+#: ../datum-gateway.templates:2001
+msgid "Password for the API: ${PASSWORD}"
+msgstr "Senha para a API: ${PASSWORD}"
+
+#. Type: note
+#. Description
+#: ../datum-gateway.templates:2001
+msgid "This password will be asked when accessing the web UI"
+msgstr "Essa senha será solicitada ao acessar a interface do usuário(a) na web"
