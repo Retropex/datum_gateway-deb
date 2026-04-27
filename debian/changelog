@@ -5,6 +5,8 @@ datum-gateway (0.4.1~beta-3) unstable; urgency=medium
   * Add support for sysVinit service file
   * Various bug fixes
   * Add better config script using debconf
+  * Fix "[INTL:nl] Dutch debconf templates translation" <explain what
+    you changed and why> (Closes: #1132544)
 
  -- Léo Haf <leo@haf.ovh>  Thu, 23 Apr 2026 15:08:34 +0200
 
