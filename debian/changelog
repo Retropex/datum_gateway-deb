@@ -1,12 +1,13 @@
 datum-gateway (0.4.1~beta-3) unstable; urgency=medium
 
-  * Fix "[INTL:nl] Dutch debconf templates translation" <explain what
-    you changed and why> (Closes: #1132544)
+  * Fix "[INTL:nl] Dutch debconf templates translation" (Closes: #1132544)
   * Add support for sysVinit service file
-  * Various bug fixes
   * Add better config script using debconf
-  * Fix "[INTL:nl] Dutch debconf templates translation" <explain what
-    you changed and why> (Closes: #1132544)
+  * Remove extra dpkg-statoverride in postrm
+  * Better postinst reliability by unseting RET more times
+  * Fix "[INTL:pt_BR] Brazilian Portuguese debconf templates translation"
+    (Closes: #1134847)
+  * Improve .config to avoid unexpected exit
 
  -- Léo Haf <leo@haf.ovh>  Thu, 23 Apr 2026 15:08:34 +0200
 
