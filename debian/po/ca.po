@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: datum-gateway\n"
 "Report-Msgid-Bugs-To: datum-gateway@packages.debian.org\n"
 "POT-Creation-Date: 2026-04-23 14:47+0200\n"
-"PO-Revision-Date: 2026-03-17 21:47+0100\n"
+"PO-Revision-Date: 2026-05-11 22:06+0200\n"
 "Last-Translator: poc senderi <pocsenderi@protonmail.com>\n"
 "Language-Team: Catalan <debian-l10n-catalan@lists.debian.org>\n"
 "Language: ca\n"
@@ -50,31 +50,31 @@ msgstr "Aquesta contrasenya serà demanada quan s'accedeixi a la interfície web
 #. Description
 #: ../datum-gateway.templates:3001
 msgid "Do you want to enable logs in /var/log/datum-gateway ?"
-msgstr ""
+msgstr "Voleu activar els registres a «/var/log/datum-gateway»?"
 
 #. Type: boolean
 #. Description
 #: ../datum-gateway.templates:3001
 msgid "This is particularly useful for system that doesn't use systemd."
-msgstr ""
+msgstr "Això és particularment útil en sistemes que no usen el «systemd»."
 
 #. Type: boolean
 #. Description
 #: ../datum-gateway.templates:4001
 msgid "Do you want to add the blocknotify option in the bitcoin.conf?"
-msgstr ""
+msgstr "Voleu afegir l'opció «blocknotify» al «bitcoin.conf»?"
 
 #. Type: boolean
 #. Description
 #: ../datum-gateway.templates:4001
 msgid "This is very highly recommended to avoid mining stale work."
-msgstr ""
+msgstr "Això és molt recomanable per evitar tasques de minatge obsoletes."
 
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:5001
 msgid "The secondary tag used in the coinbase transaction:"
-msgstr ""
+msgstr "L'etiqueta secundària usada en la transacció «coinbase»:"
 
 #. Type: string
 #. Description
@@ -83,39 +83,41 @@ msgid ""
 "This tag will be added in the coinbase transaction, it can be anything.  "
 "Leave it blank if you want to use the default"
 msgstr ""
+"Aquesta etiqueta serà afegida a la transacció «coinbase»; pot ser qualsevol "
+"cosa. Deixeu-ho en blanc si voleu usar el predeterminat"
 
 #. Type: error
 #. Description
 #: ../datum-gateway.templates:6001
 msgid "Couldn't configure blocknotify automatically"
-msgstr ""
+msgstr "No s'ha pogut configurar «blocknotify» automàticament"
 
 #. Type: error
 #. Description
 #: ../datum-gateway.templates:6001
 msgid ""
 "please add \"blocknotify=killall -USR1 datum_gateway\" to your bitcoin.conf\""
-msgstr ""
+msgstr "Afegiu «blocknotify=killall -USR1 datum_gateway» al «bitcoin.conf»"
 
 #. Type: note
 #. Description
 #: ../datum-gateway.templates:7001
-#, fuzzy
-#| msgid "The Bitcoin address used for mining:"
 msgid "No Bitcoin address entered"
-msgstr "Adreça de Bitcoin usada per a minatge:"
+msgstr "No s'ha introduït cap adreça Bitcoin"
 
 #. Type: note
 #. Description
 #: ../datum-gateway.templates:7001
 msgid "you can still configure it in the config file/GUI."
 msgstr ""
+"Tot i així encara podeu configurar-ho al fitxer de configuració o a la "
+"interfície gràfica."
 
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:8001
 msgid "Work update interval in seconds:"
-msgstr ""
+msgstr "Interval, en segons, d'actualització de la feina:"
 
 #. Type: string
 #. Description
@@ -124,12 +126,14 @@ msgid ""
 "How many seconds between normal work updates. Must be a number between 5 and "
 "120."
 msgstr ""
+"Quants segons passen entre actualitzacions normals de la feina. Ha de ser un "
+"nombre entre 5 i 120."
 
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:9001
 msgid "Listen port:"
-msgstr ""
+msgstr "Port on s'escolta:"
 
 #. Type: string
 #. Description
@@ -137,48 +141,49 @@ msgstr ""
 msgid ""
 "Listening port for Stratum Gateway. Must be a number between 5 and 65535."
 msgstr ""
+"Port on escoltarà l'Stratum Gateway. Ha de ser un nombre entre 5 i 65535."
 
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:10001
 msgid "Listen port for the API:"
-msgstr ""
+msgstr "Port on escoltarà l'API:"
 
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:10001
 msgid "Listening port for the web API. Must be a number between 5 and 65535."
-msgstr ""
+msgstr "Port on escoltarà l'API web. Ha de ser un nombre entre 5 i 65535."
 
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:11001
 msgid "Maximum clients per Stratum server thread:"
-msgstr ""
+msgstr "Màxim de clients per al fil del servidor Stratum:"
 
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:11001
 msgid "Must be a number higher than 0."
-msgstr ""
+msgstr "Ha de ser un nombre més gran que 0."
 
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:12001
 msgid "Maximum Stratum server threads:"
-msgstr ""
+msgstr "Nombre màxim de fils del servidor Stratum:"
 
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:12001
 msgid "Must be a number between 1 and 64."
-msgstr ""
+msgstr "Ha de ser un nombre entre 1 i 64."
 
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:13001
 msgid "Maximum clients:"
-msgstr ""
+msgstr "Màxim de clients:"
 
 #. Type: string
 #. Description
@@ -187,24 +192,26 @@ msgid ""
 "Maximum total Stratum clients before rejecting connections. Must be a number "
 "higher than 0."
 msgstr ""
+"Nombre màxim total de clients Stratum abans de rebutjar connexions. Ha de "
+"ser un nombre més gran que 0."
 
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:14001
 msgid "Work difficulty floor:"
-msgstr ""
+msgstr "Llindar mínim de la dificultat de treball:"
 
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:14001
 msgid "Must be a power of two."
-msgstr ""
+msgstr "Ha de ser potència de dos."
 
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:15001
 msgid "The primary tag used in the coinbase transaction:"
-msgstr ""
+msgstr "Etiqueta primària utilitzada en la transacció «coinbase»:"
 
 #. Type: string
 #. Description
@@ -213,24 +220,27 @@ msgid ""
 "This tag will be added in the coinbase transaction, it can be anything. The "
 "primary tag will be overridden by the pool if mining in pooled mode."
 msgstr ""
+"Aquesta etiqueta serà afegida a la transacció «coinbase»; pot ser qualsevol "
+"cosa. L'etiqueta principal serà serà substituïda pel «pool» si s'està minant "
+"en mode agrupat."
 
 #. Type: boolean
 #. Description
 #: ../datum-gateway.templates:16001
 msgid "Should the config be modifiable from the dashboard?"
-msgstr ""
+msgstr "Des del panell s'ha de poder modificar la configuració?"
 
 #. Type: boolean
 #. Description
 #: ../datum-gateway.templates:16001
 msgid "Enable modifying the config file from API/dashboard."
-msgstr ""
+msgstr "Permet la modificació del fitxer de configuració des de l'API/panell."
 
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:17001
 msgid "Log level for log file:"
-msgstr ""
+msgstr "Nivell de registre pel fitxer de registre:"
 
 #. Type: string
 #. Description
@@ -239,36 +249,44 @@ msgid ""
 "Minimum log level for log file messages  (0=All, 1=Debug, 2=Info, 3=Warn, "
 "4=Error, 5=Fatal)"
 msgstr ""
+"Nivell mínim de registre del missatges al fitxer de registre (0: tots, 1: "
+"depuració, 2: informació, 3: avís, 4: error, 5: fatal)"
 
 #. Type: boolean
 #. Description
 #: ../datum-gateway.templates:18001
 msgid "Pass workers to pool?"
-msgstr ""
+msgstr "Voleu passar els treballadors al «pool»?"
 
 #. Type: boolean
 #. Description
 #: ../datum-gateway.templates:18001
 msgid "Pass stratum miner usernames as sub-worker names to the pool."
 msgstr ""
+"Passa els noms d'usuari dels minadors «stratum» com a noms de sub-"
+"treballadors al «pool»."
 
 #. Type: boolean
 #. Description
 #: ../datum-gateway.templates:19001
 msgid "Pass stratum miner usernames as raw usernames to the pool?"
 msgstr ""
+"Voleu passar els noms d'usuari dels minadors directament com a noms d'usuari "
+"al «pool»?"
 
 #. Type: boolean
 #. Description
 #: ../datum-gateway.templates:19001
 msgid "Use if putting multiple payout addresses on miners behind this gateway."
 msgstr ""
+"Feu-ho servir si es posen múltiples adreces de pagament als minadors darrere "
+"d’aquesta passarel·la."
 
 #. Type: boolean
 #. Description
 #: ../datum-gateway.templates:20001
 msgid "Pooled mining only?"
-msgstr ""
+msgstr "Voleu fer només minatge agrupat?"
 
 #. Type: boolean
 #. Description
@@ -278,3 +296,6 @@ msgid ""
 "If the DATUM pool server becomes unavailable, terminate miner connections  "
 "(otherwise, 100% of any blocks you find pay mining.pool_address)"
 msgstr ""
+"Si el servidor agrupat DATUM esdevé inaccessible, finalitza les connexions "
+"dels minadors (altrament, el 100% de qualsevol bloc que trobeu es pagaran a "
+"«mining.pool_address)"
