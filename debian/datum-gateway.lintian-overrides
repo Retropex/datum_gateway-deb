@@ -1,1 +1,7 @@
 datum-gateway: spelling-error-in-binary acces access [usr/bin/datum_gateway]
+
+# false positive due to bash function
+datum-gateway: unused-debconf-template datum-gateway/modify_conf [templates:*]
+datum-gateway: unused-debconf-template datum-gateway/pool_pass_full_users [templates:*]
+datum-gateway: unused-debconf-template datum-gateway/pool_pass_workers [templates:*]
+datum-gateway: unused-debconf-template datum-gateway/pooled_mining_only [templates:*]

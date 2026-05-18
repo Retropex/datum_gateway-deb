@@ -1,3 +1,9 @@
+datum-gateway (0.4.1~beta-4) unstable; urgency=medium
+
+  * Fix debconf asking questions twice with apt
+
+ -- Léo Haf <leo@haf.ovh>  Mon, 18 May 2026 11:59:44 +0200
+
 datum-gateway (0.4.1~beta-3) unstable; urgency=medium
 
   * Fix "[INTL:nl] Dutch debconf templates translation" (Closes: #1132544)
