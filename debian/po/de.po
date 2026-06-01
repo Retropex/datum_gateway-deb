@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: datum-gateway 0.4.1~beta-1\n"
+"Project-Id-Version: datum-gateway 0.4.1~beta-3\n"
 "Report-Msgid-Bugs-To: datum-gateway@packages.debian.org\n"
 "POT-Creation-Date: 2026-04-23 14:47+0200\n"
-"PO-Revision-Date: 2026-03-15 18:57+0100\n"
+"PO-Revision-Date: 2026-05-08 08:18+0200\n"
 "Last-Translator: Helge Kreutzmann <debian@helgefjell.de>\n"
 "Language-Team: German <debian-l10n-german@lists.debian.org>\n"
 "Language: de\n"
@@ -20,7 +20,7 @@ msgstr ""
 #. Description
 #: ../datum-gateway.templates:1001
 msgid "The Bitcoin address used for mining:"
-msgstr "Die zum Minen verwandte Bitcon-Adresse:"
+msgstr "Die zum Minen verwandte Bitcoin-Adresse:"
 
 #. Type: string
 #. Description
@@ -30,7 +30,7 @@ msgid ""
 "meaning it is used solely as a fallback in the event of a pool disconnection."
 msgstr ""
 "Standardmäßig wird diese Bitcoin-Adresse durch die Benutzernamen von Minern "
-"außerkraftgesetzt. Das bedeutet, dass sie lediglich als Rückfalloption "
+"außer Kraft gesetzt. Das bedeutet, dass sie lediglich als Rückfalloption "
 "verwandt wird, wenn die Verbindung zum Pool unterbrochen wird."
 
 #. Type: note
@@ -49,32 +49,37 @@ msgstr "Dieses Passwort wird beim Zugriff auf die Web-Oberfläche angefragt."
 #. Description
 #: ../datum-gateway.templates:3001
 msgid "Do you want to enable logs in /var/log/datum-gateway ?"
-msgstr ""
+msgstr "Möchten Sie Protokolle in /var/log/datum-gateway aktivieren?"
 
+# FIXME system → systems
 #. Type: boolean
 #. Description
 #: ../datum-gateway.templates:3001
 msgid "This is particularly useful for system that doesn't use systemd."
-msgstr ""
+msgstr "Dies ist insbesondere für Systeme nützlich, die kein Systemd verwenden."
 
 #. Type: boolean
 #. Description
 #: ../datum-gateway.templates:4001
 msgid "Do you want to add the blocknotify option in the bitcoin.conf?"
-msgstr ""
+msgstr "Möchten Sie die Option blocknotify in bitcoin.conf verwenden?"
 
+# FIXME „mining stale work“
 #. Type: boolean
 #. Description
 #: ../datum-gateway.templates:4001
 msgid "This is very highly recommended to avoid mining stale work."
-msgstr ""
+msgstr "Dies wird sehr nachdrücklich empfohlen, um das Minen veralteter Aufgaben zu vermeiden."
 
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:5001
 msgid "The secondary tag used in the coinbase transaction:"
 msgstr ""
+"Das sekundäre Merkmal („Tag“), das in Coinbase-Transaktionen verwandt "
+"wird:"
 
+# FIXME Missing full stop?
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:5001
@@ -82,40 +87,47 @@ msgid ""
 "This tag will be added in the coinbase transaction, it can be anything.  "
 "Leave it blank if you want to use the default"
 msgstr ""
+"Diese Markierung wird in der coinbase-Transaktion hinzugefügt, sie kann "
+"alles sein. Lassen Sie sie leer, falls Sie die Vorgabe verwenden möchten."
 
 #. Type: error
 #. Description
 #: ../datum-gateway.templates:6001
 msgid "Couldn't configure blocknotify automatically"
-msgstr ""
+msgstr "Blocknotify konnte nicht automatisch konfiguriert werden."
 
+# FIXME please → Please and full stop?
+# FIXME bitcoin.conf\" → bitcoin.conf
 #. Type: error
 #. Description
 #: ../datum-gateway.templates:6001
 msgid ""
 "please add \"blocknotify=killall -USR1 datum_gateway\" to your bitcoin.conf\""
 msgstr ""
+"Bitte fügen Sie »blocknotify=killall -USR1 datum_gateway« zu Ihrer bitcoin."
+"conf hinzu."
 
 #. Type: note
 #. Description
 #: ../datum-gateway.templates:7001
-#, fuzzy
-#| msgid "The Bitcoin address used for mining:"
 msgid "No Bitcoin address entered"
-msgstr "Die zum Minen verwandte Bitcon-Adresse:"
+msgstr "Keine Bitcoin-Adresse angegeben"
 
+# FIXME you → You
 #. Type: note
 #. Description
 #: ../datum-gateway.templates:7001
 msgid "you can still configure it in the config file/GUI."
 msgstr ""
+"Sie können sie immer noch in der Konfigurationsdatei/-oberfläche einstellen."
 
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:8001
 msgid "Work update interval in seconds:"
-msgstr ""
+msgstr "Arbeitsaktualisierungsintervall in Sekunden:"
 
+# FIXME First sentence is missing a verb.
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:8001
@@ -123,12 +135,14 @@ msgid ""
 "How many seconds between normal work updates. Must be a number between 5 and "
 "120."
 msgstr ""
+"Anzahl der Sekunden zwischen normalen Arbeitsaktualisierungen. Muss eine "
+"Zahl zwischen 5 und 120 sein."
 
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:9001
 msgid "Listen port:"
-msgstr ""
+msgstr "Port zum Warten auf Anfragen:"
 
 #. Type: string
 #. Description
@@ -136,49 +150,56 @@ msgstr ""
 msgid ""
 "Listening port for Stratum Gateway. Must be a number between 5 and 65535."
 msgstr ""
+"Port, an dem Stratum Gateway auf Anfragen wartet. Muss ein Zahl zwischen 5 "
+"und 65535 sein."
 
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:10001
 msgid "Listen port for the API:"
-msgstr ""
+msgstr "Port, auf dem das API auf Anfragen wartet:"
 
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:10001
 msgid "Listening port for the web API. Must be a number between 5 and 65535."
 msgstr ""
+"Port, auf dem das Web-API auf Anfragen wartet. Muss eine Zahl zwischen 5 und "
+"65535 sein."
 
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:11001
 msgid "Maximum clients per Stratum server thread:"
-msgstr ""
+msgstr "Maximale Anzahl an Clients pro Stratum-Server-Thread:"
 
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:11001
 msgid "Must be a number higher than 0."
-msgstr ""
+msgstr "Muss eine Zahl größer als 0 sein."
 
+# FIXME Maximum → Maximum number of
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:12001
 msgid "Maximum Stratum server threads:"
-msgstr ""
+msgstr "Maximale Anzahl an Stratum-Server-Threads:"
 
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:12001
 msgid "Must be a number between 1 and 64."
-msgstr ""
+msgstr "Muss eine Zahl zwischen 1 und 64 sein."
 
+# FIXME Maximum clients: → Maximum number of clients:
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:13001
 msgid "Maximum clients:"
-msgstr ""
+msgstr "Maximale Anzahl an Clients:"
 
+# FIXME Maximum total Stratum → Maximum total number of Stratum
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:13001
@@ -186,24 +207,27 @@ msgid ""
 "Maximum total Stratum clients before rejecting connections. Must be a number "
 "higher than 0."
 msgstr ""
+"Maximale Gesamtzahl an Stratum-Clients, bevor Verbindungen abgelehnt werden. "
+"Muss eine Zahl größer als 0 sein."
 
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:14001
 msgid "Work difficulty floor:"
-msgstr ""
+msgstr "Arbeitsaufwand, Untergrenze:"
 
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:14001
 msgid "Must be a power of two."
-msgstr ""
+msgstr "Muss eine Zweierpotenz sein."
 
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:15001
 msgid "The primary tag used in the coinbase transaction:"
 msgstr ""
+"Die primäre Markierung, die in Coinbase-Transaktionen verwandt wird:"
 
 #. Type: string
 #. Description
@@ -212,24 +236,29 @@ msgid ""
 "This tag will be added in the coinbase transaction, it can be anything. The "
 "primary tag will be overridden by the pool if mining in pooled mode."
 msgstr ""
+"Diese Markierung wird in der Coinbase-Transaktion hinzugefügt, sie kann "
+"alles sein. Die primäre Markierung wird vom Pool außer Kraft gesetzt werden, "
+"falls Mining im Pool-Modus erfolgt."
 
 #. Type: boolean
 #. Description
 #: ../datum-gateway.templates:16001
 msgid "Should the config be modifiable from the dashboard?"
-msgstr ""
+msgstr "Soll die Konfiguration von der Übersicht aus änderbar sein?"
 
 #. Type: boolean
 #. Description
 #: ../datum-gateway.templates:16001
 msgid "Enable modifying the config file from API/dashboard."
 msgstr ""
+"Aktivieren Sie die Bearbeitung der Konfigurationsdatei über die API/aus der "
+"Anzeige heraus."
 
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:17001
 msgid "Log level for log file:"
-msgstr ""
+msgstr "Protokollierungsstgufe für die Protokollierungsdatei:"
 
 #. Type: string
 #. Description
@@ -238,36 +267,41 @@ msgid ""
 "Minimum log level for log file messages  (0=All, 1=Debug, 2=Info, 3=Warn, "
 "4=Error, 5=Fatal)"
 msgstr ""
+"Minimale Protokollierungsstufe für Protokolldateimeldungen (0=Alle, "
+"1=Fehlersuche, 2=Information, 3=Warnungen, 4=Fehler, 5=Fatal)"
 
+# FIXME workers → ressources? The concept of „workers“ is not explained on https://en.wikipedia.org/wiki/Bitcoin and probably not people are actually send to the pool …
 #. Type: boolean
 #. Description
 #: ../datum-gateway.templates:18001
 msgid "Pass workers to pool?"
-msgstr ""
+msgstr "Arbeiter an den Pool übergeben?"
 
 #. Type: boolean
 #. Description
 #: ../datum-gateway.templates:18001
 msgid "Pass stratum miner usernames as sub-worker names to the pool."
-msgstr ""
+msgstr "Stratum-Miner-Benutzernamen als Unterarbeiternamen an den Pool übergeben."
 
 #. Type: boolean
 #. Description
 #: ../datum-gateway.templates:19001
 msgid "Pass stratum miner usernames as raw usernames to the pool?"
-msgstr ""
+msgstr "Stratum-Miner-Benutzernamen als rohe Benutzernamen an den Pool übergeben?"
 
 #. Type: boolean
 #. Description
 #: ../datum-gateway.templates:19001
 msgid "Use if putting multiple payout addresses on miners behind this gateway."
 msgstr ""
+"Verwenden Sie dies, falls Sie mehrere Bezahladressen für Miner hinter diesem "
+"Gateway setzen."
 
 #. Type: boolean
 #. Description
 #: ../datum-gateway.templates:20001
 msgid "Pooled mining only?"
-msgstr ""
+msgstr "Nur Mining im Pool?"
 
 #. Type: boolean
 #. Description
@@ -277,3 +311,6 @@ msgid ""
 "If the DATUM pool server becomes unavailable, terminate miner connections  "
 "(otherwise, 100% of any blocks you find pay mining.pool_address)"
 msgstr ""
+"Falls der DATUM-Pool-Server nicht mehr verfügbar ist, werden Miner-"
+"Verbindungen beendet (andernfalls bezahlen 100% aller von Ihnen gefundenen "
+"Blöcke mining.pool_address)."

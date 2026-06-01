@@ -1,6 +1,9 @@
 datum-gateway (0.4.1~beta-5) unstable; urgency=medium
 
   * Set higher LimitNOFILE in systemd service file
+  * Fix "[INTL:pt] Portuguese translation - debconf messages" (Closes: #1136039)
+  * Fix "[INTL:de] Updated German debconf translation" (Closes: #1136181)
+  * Fix "[INTL:nl] Dutch debconf templates translation" (Closes: #1137535)
 
  -- Léo Haf <leo@haf.ovh>  Mon, 01 Jun 2026 12:44:02 +0200
 
