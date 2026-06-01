@@ -1,3 +1,9 @@
+datum-gateway (0.4.1~beta-5) unstable; urgency=medium
+
+  * Set higher LimitNOFILE in systemd service file
+
+ -- Léo Haf <leo@haf.ovh>  Mon, 01 Jun 2026 12:44:02 +0200
+
 datum-gateway (0.4.1~beta-4) unstable; urgency=medium
 
   * Fix debconf asking questions twice with apt
