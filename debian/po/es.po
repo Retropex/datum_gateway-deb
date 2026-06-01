@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: datum-gateway\n"
 "Report-Msgid-Bugs-To: datum-gateway@packages.debian.org\n"
-"POT-Creation-Date: 2026-04-23 14:47+0200\n"
+"POT-Creation-Date: 2026-06-01 15:06+0200\n"
 "PO-Revision-Date: 2026-03-11 17:42+0100\n"
 "Last-Translator: Camaleón <noelamac@gmail.com>\n"
 "Language-Team: Debian Spanish <debian-l10n-spanish@lists.debian.org>\n"
@@ -44,7 +44,9 @@ msgstr "Contraseña de la API: ${PASSWORD}"
 #. Type: note
 #. Description
 #: ../datum-gateway.templates:2001
-msgid "This password will be asked when accessing the web UI"
+#, fuzzy
+#| msgid "This password will be asked when accessing the web UI"
+msgid "This password will be asked when accessing the web UI."
 msgstr "Se le predirá está contraseña cuando acceda a la interfaz web"
 
 #. Type: boolean
@@ -56,7 +58,7 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../datum-gateway.templates:3001
-msgid "This is particularly useful for system that doesn't use systemd."
+msgid "This is particularly useful for systems that don't use systemd."
 msgstr ""
 
 #. Type: boolean
@@ -82,7 +84,7 @@ msgstr ""
 #: ../datum-gateway.templates:5001
 msgid ""
 "This tag will be added in the coinbase transaction, it can be anything.  "
-"Leave it blank if you want to use the default"
+"Leave it blank if you want to use the default."
 msgstr ""
 
 #. Type: error
@@ -95,7 +97,8 @@ msgstr ""
 #. Description
 #: ../datum-gateway.templates:6001
 msgid ""
-"please add \"blocknotify=killall -USR1 datum_gateway\" to your bitcoin.conf\""
+"Please add \"blocknotify=killall -USR1 datum_gateway\" to your bitcoin.conf "
+"file."
 msgstr ""
 
 #. Type: note
@@ -109,7 +112,7 @@ msgstr "Dirección de Bitcoin utilizada para la minería:"
 #. Type: note
 #. Description
 #: ../datum-gateway.templates:7001
-msgid "you can still configure it in the config file/GUI."
+msgid "You can still configure it in the config file/GUI."
 msgstr ""
 
 #. Type: string
@@ -154,7 +157,7 @@ msgstr ""
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:11001
-msgid "Maximum clients per Stratum server thread:"
+msgid "Maximum number of clients per Stratum server thread:"
 msgstr ""
 
 #. Type: string
@@ -166,7 +169,7 @@ msgstr ""
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:12001
-msgid "Maximum Stratum server threads:"
+msgid "Maximum number of Stratum server threads:"
 msgstr ""
 
 #. Type: string
@@ -178,15 +181,15 @@ msgstr ""
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:13001
-msgid "Maximum clients:"
+msgid "Maximum total number of Stratum:"
 msgstr ""
 
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:13001
 msgid ""
-"Maximum total Stratum clients before rejecting connections. Must be a number "
-"higher than 0."
+"Maximum total number of Stratum clients before rejecting connections. Must "
+"be a number higher than 0."
 msgstr ""
 
 #. Type: string
@@ -237,14 +240,14 @@ msgstr ""
 #. Description
 #: ../datum-gateway.templates:17001
 msgid ""
-"Minimum log level for log file messages  (0=All, 1=Debug, 2=Info, 3=Warn, "
+"Minimum log level for log file messages.  (0=All, 1=Debug, 2=Info, 3=Warn, "
 "4=Error, 5=Fatal)"
 msgstr ""
 
 #. Type: boolean
 #. Description
 #: ../datum-gateway.templates:18001
-msgid "Pass workers to pool?"
+msgid "Pass workers usernames to the pool?"
 msgstr ""
 
 #. Type: boolean
@@ -276,6 +279,6 @@ msgstr ""
 #: ../datum-gateway.templates:20001
 #, no-c-format
 msgid ""
-"If the DATUM pool server becomes unavailable, terminate miner connections  "
+"If the DATUM pool server becomes unavailable, terminate miner connections.  "
 "(otherwise, 100% of any blocks you find pay mining.pool_address)"
 msgstr ""

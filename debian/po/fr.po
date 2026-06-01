@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: datum-gateway\n"
 "Report-Msgid-Bugs-To: datum-gateway@packages.debian.org\n"
-"POT-Creation-Date: 2026-04-23 14:47+0200\n"
+"POT-Creation-Date: 2026-06-01 15:06+0200\n"
 "PO-Revision-Date: 2025-10-22 10:41+0000\n"
 "Last-Translator: Léo Haf <leo@haf.ovh>\n"
 "Language-Team: French <traduc@traduc.org>\n"
@@ -43,8 +43,8 @@ msgstr "Mot de passe pour l'API: ${PASSWORD}"
 #. Type: note
 #. Description
 #: ../datum-gateway.templates:2001
-msgid "This password will be asked when accessing the web UI"
-msgstr "Ce mot de passe sera demandé pour accéder a l'interface web"
+msgid "This password will be asked when accessing the web UI."
+msgstr "Ce mot de passe sera demandé pour accéder a l'interface web."
 
 #. Type: boolean
 #. Description
@@ -55,7 +55,7 @@ msgstr "Voulez vous activer les logs dans /var/log/datum-gateway ?"
 #. Type: boolean
 #. Description
 #: ../datum-gateway.templates:3001
-msgid "This is particularly useful for system that doesn't use systemd."
+msgid "This is particularly useful for systems that don't use systemd."
 msgstr ""
 "Ceci est particulièrement utile pour les systèmes qui n'utilisent pas "
 "systemd."
@@ -85,7 +85,7 @@ msgstr "Le tag secondaire utilsé pour la transaction coinbase :"
 #: ../datum-gateway.templates:5001
 msgid ""
 "This tag will be added in the coinbase transaction, it can be anything.  "
-"Leave it blank if you want to use the default"
+"Leave it blank if you want to use the default."
 msgstr ""
 "Ce tag sera ajoutée à la transaction coinbase, elle peut contenir n'importe "
 "quelle valeur. Laissez ce champ vide si vous souhaitez utiliser la valeur "
@@ -101,7 +101,8 @@ msgstr "Impossible de configurer blocknotify automatiquement"
 #. Description
 #: ../datum-gateway.templates:6001
 msgid ""
-"please add \"blocknotify=killall -USR1 datum_gateway\" to your bitcoin.conf\""
+"Please add \"blocknotify=killall -USR1 datum_gateway\" to your bitcoin.conf "
+"file."
 msgstr ""
 "Veuillez ajouter \"blocknotify=killall -USR1 datum_gateway\" à votre fichier "
 "bitcoin.conf."
@@ -115,7 +116,7 @@ msgstr "Aucune adresse Bitcoin saisie"
 #. Type: note
 #. Description
 #: ../datum-gateway.templates:7001
-msgid "you can still configure it in the config file/GUI."
+msgid "You can still configure it in the config file/GUI."
 msgstr ""
 "Vous pouvez toujours le configurer dans le fichier de configuration/"
 "l'interface graphique."
@@ -167,7 +168,7 @@ msgstr ""
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:11001
-msgid "Maximum clients per Stratum server thread:"
+msgid "Maximum number of clients per Stratum server thread:"
 msgstr "Nombre maximal de clients par thread du serveur Stratum :"
 
 #. Type: string
@@ -179,7 +180,7 @@ msgstr "Doit être un nombre supérieur à 0."
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:12001
-msgid "Maximum Stratum server threads:"
+msgid "Maximum number of Stratum server threads:"
 msgstr "Nombre maximal de threads du serveur Stratum :"
 
 #. Type: string
@@ -191,15 +192,15 @@ msgstr "Doit être un nombre compris entre 1 et 64."
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:13001
-msgid "Maximum clients:"
-msgstr "Nombre maximum de clients :"
+msgid "Maximum total number of Stratum:"
+msgstr "Nombre maximal de threads du serveur Stratum :"
 
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:13001
 msgid ""
-"Maximum total Stratum clients before rejecting connections. Must be a number "
-"higher than 0."
+"Maximum total number of Stratum clients before rejecting connections. Must "
+"be a number higher than 0."
 msgstr ""
 "Nombre maximal de clients Stratum avant le rejet des connexions. Doit être "
 "supérieur à 0."
@@ -257,17 +258,17 @@ msgstr "Niveau de journalisation du fichier journal :"
 #. Description
 #: ../datum-gateway.templates:17001
 msgid ""
-"Minimum log level for log file messages  (0=All, 1=Debug, 2=Info, 3=Warn, "
+"Minimum log level for log file messages.  (0=All, 1=Debug, 2=Info, 3=Warn, "
 "4=Error, 5=Fatal)"
 msgstr ""
-"Niveau de journalisation minimal pour les messages du fichier journal "
+"Niveau de journalisation minimal pour les messages du fichier journal. "
 "(0=Tous, 1=Débogage, 2=Info, 3=Avertissement, 4=Erreur, 5=Fatal)"
 
 #. Type: boolean
 #. Description
 #: ../datum-gateway.templates:18001
-msgid "Pass workers to pool?"
-msgstr "Transférer les clients à la pool ?"
+msgid "Pass workers usernames to the pool?"
+msgstr "Transférer les noms d'utilisateur à la pool ?"
 
 #. Type: boolean
 #. Description
@@ -303,9 +304,9 @@ msgstr "Minage en pool uniquement ?"
 #: ../datum-gateway.templates:20001
 #, no-c-format
 msgid ""
-"If the DATUM pool server becomes unavailable, terminate miner connections  "
+"If the DATUM pool server becomes unavailable, terminate miner connections.  "
 "(otherwise, 100% of any blocks you find pay mining.pool_address)"
 msgstr ""
 "Si le serveur du pool DATUM devient indisponible, mettez fin aux connexions "
-"des mineurs (sinon, 100 % des blocs trouvés seront payé à "
+"des mineurs. (sinon, 100 % des blocs trouvés seront payé à "
 "mining.pool_address)."

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: datum-gateway_0.4.1~beta-3\n"
 "Report-Msgid-Bugs-To: datum-gateway@packages.debian.org\n"
-"POT-Creation-Date: 2026-04-23 14:47+0200\n"
+"POT-Creation-Date: 2026-06-01 15:06+0200\n"
 "PO-Revision-Date: 2026-05-12 22:52+0200\n"
 "Last-Translator: Frans Spiesschaert <Frans.Spiesschaert@yucom.be>\n"
 "Language-Team: Debian Dutch l10n Team <debian-l10n-dutch@lists.debian.org>\n"
@@ -45,7 +45,9 @@ msgstr "Wachtwoord voor de API: ${PASSWORD}"
 #. Type: note
 #. Description
 #: ../datum-gateway.templates:2001
-msgid "This password will be asked when accessing the web UI"
+#, fuzzy
+#| msgid "This password will be asked when accessing the web UI"
+msgid "This password will be asked when accessing the web UI."
 msgstr "Dit wachtwoord zal gevraagd worden bij het openen van de webinterface"
 
 #. Type: boolean
@@ -57,7 +59,9 @@ msgstr "Wilt u logboekregistratie inschakelen in /var/log/datum-gateway?"
 #. Type: boolean
 #. Description
 #: ../datum-gateway.templates:3001
-msgid "This is particularly useful for system that doesn't use systemd."
+#, fuzzy
+#| msgid "This is particularly useful for system that doesn't use systemd."
+msgid "This is particularly useful for systems that don't use systemd."
 msgstr "Dit is vooral handig voor systemen die geen gebruik maken van systemd."
 
 #. Type: boolean
@@ -83,9 +87,13 @@ msgstr "De secundaire tag die in de coinbase-transactie wordt gebruikt:"
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:5001
+#, fuzzy
+#| msgid ""
+#| "This tag will be added in the coinbase transaction, it can be anything.  "
+#| "Leave it blank if you want to use the default"
 msgid ""
 "This tag will be added in the coinbase transaction, it can be anything.  "
-"Leave it blank if you want to use the default"
+"Leave it blank if you want to use the default."
 msgstr ""
 "Deze tag wordt toegevoegd aan de coinbase-transactie; het kan van alles "
 "zijn. Laat het veld leeg als u de standaardtag wilt gebruiken."
@@ -99,21 +107,30 @@ msgstr "Blocknotify kon niet automatisch worden geconfigureerd"
 #. Type: error
 #. Description
 #: ../datum-gateway.templates:6001
+#, fuzzy
+#| msgid ""
+#| "please add \"blocknotify=killall -USR1 datum_gateway\" to your "
+#| "bitcoin.conf\""
 msgid ""
-"please add \"blocknotify=killall -USR1 datum_gateway\" to your bitcoin.conf\""
+"Please add \"blocknotify=killall -USR1 datum_gateway\" to your bitcoin.conf "
+"file."
 msgstr ""
 "voeg \"blocknotify=killall -USR1 datum_gateway\" toe aan uw bitcoin.conf"
 
 #. Type: note
 #. Description
 #: ../datum-gateway.templates:7001
+#, fuzzy
+#| msgid "No Bitcoin address entered"
 msgid "No Bitcoin address entered"
 msgstr "Geen Bitcoin-adres ingevoerd"
 
 #. Type: note
 #. Description
 #: ../datum-gateway.templates:7001
-msgid "you can still configure it in the config file/GUI."
+#, fuzzy
+#| msgid "you can still configure it in the config file/GUI."
+msgid "You can still configure it in the config file/GUI."
 msgstr ""
 "u kunt het nog steeds configureren via het configuratiebestand/de grafische "
 "gebruikersinterface (GUI)."
@@ -163,7 +180,9 @@ msgstr "Luisterpoort voor de web-API. Moet een getal zijn tussen 5 en 65535."
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:11001
-msgid "Maximum clients per Stratum server thread:"
+#, fuzzy
+#| msgid "Maximum clients per Stratum server thread:"
+msgid "Maximum number of clients per Stratum server thread:"
 msgstr "Maximaal aantal clients per Stratum-serverthread:"
 
 #. Type: string
@@ -175,7 +194,9 @@ msgstr "Moet een getal groter dan 0 zijn."
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:12001
-msgid "Maximum Stratum server threads:"
+#, fuzzy
+#| msgid "Maximum Stratum server threads:"
+msgid "Maximum number of Stratum server threads:"
 msgstr "Maximum aantal Stratum-serverthreads:"
 
 #. Type: string
@@ -187,15 +208,21 @@ msgstr "Moet een getal tussen 1 en 64 zijn."
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:13001
-msgid "Maximum clients:"
-msgstr "Maximum aantal clients:"
+#, fuzzy
+#| msgid "Maximum Stratum server threads:"
+msgid "Maximum total number of Stratum:"
+msgstr "Maximum aantal Stratum-serverthreads:"
 
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:13001
+#, fuzzy
+#| msgid ""
+#| "Maximum total Stratum clients before rejecting connections. Must be a "
+#| "number higher than 0."
 msgid ""
-"Maximum total Stratum clients before rejecting connections. Must be a number "
-"higher than 0."
+"Maximum total number of Stratum clients before rejecting connections. Must "
+"be a number higher than 0."
 msgstr ""
 "Het maximale aantal Stratum-clients voordat verbindingen worden geweigerd. "
 "Dit getal moet groter zijn dan 0."
@@ -252,8 +279,12 @@ msgstr "Logniveau voor logbestand:"
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:17001
+#, fuzzy
+#| msgid ""
+#| "Minimum log level for log file messages  (0=All, 1=Debug, 2=Info, 3=Warn, "
+#| "4=Error, 5=Fatal)"
 msgid ""
-"Minimum log level for log file messages  (0=All, 1=Debug, 2=Info, 3=Warn, "
+"Minimum log level for log file messages.  (0=All, 1=Debug, 2=Info, 3=Warn, "
 "4=Error, 5=Fatal)"
 msgstr ""
 "Minimaal logniveau voor berichten in logbestanden (0=Alles, 1=Debug, 2=Info, "
@@ -262,7 +293,9 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../datum-gateway.templates:18001
-msgid "Pass workers to pool?"
+#, fuzzy
+#| msgid "Pass workers to pool?"
+msgid "Pass workers usernames to the pool?"
 msgstr "Werkers doorgeven aan de pool?"
 
 #. Type: boolean
@@ -298,11 +331,18 @@ msgstr "Alleen gepoold minen?"
 #. Type: boolean
 #. Description
 #: ../datum-gateway.templates:20001
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "If the DATUM pool server becomes unavailable, terminate miner "
+#| "connections  (otherwise, 100% of any blocks you find pay "
+#| "mining.pool_address)"
 msgid ""
-"If the DATUM pool server becomes unavailable, terminate miner connections  "
+"If the DATUM pool server becomes unavailable, terminate miner connections.  "
 "(otherwise, 100% of any blocks you find pay mining.pool_address)"
 msgstr ""
 "De verbindingen met de miners verbreken als de DATUM-poolserver niet meer "
 "beschikbaar is (anders gaat 100% van alle blokken die u vindt naar "
 "mining.pool_address)"
+
+#~ msgid "Maximum clients:"
+#~ msgstr "Maximum aantal clients:"

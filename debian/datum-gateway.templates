@@ -7,13 +7,13 @@ _Description: The Bitcoin address used for mining:
 Template: datum-gateway/password
 Type: note
 _Description: Password for the API: ${PASSWORD}
- This password will be asked when accessing the web UI
+ This password will be asked when accessing the web UI.
 
 Template: datum-gateway/log
 Type: boolean
 Default: false
 _Description: Do you want to enable logs in /var/log/datum-gateway ?
- This is particularly useful for system that doesn't use systemd.
+ This is particularly useful for systems that don't use systemd.
 
 Template: datum-gateway/blocknotify
 Type: boolean
@@ -25,17 +25,17 @@ Template: datum-gateway/coinbase-tag-secondary
 Type: string
 _Description: The secondary tag used in the coinbase transaction:
  This tag will be added in the coinbase transaction, it can be anything. 
- Leave it blank if you want to use the default
+ Leave it blank if you want to use the default.
 
 Template: datum-gateway/blocknotify-fail
 Type: error
 _Description: Couldn't configure blocknotify automatically
- please add "blocknotify=killall -USR1 datum_gateway" to your bitcoin.conf"
+ Please add "blocknotify=killall -USR1 datum_gateway" to your bitcoin.conf file.
 
 Template: datum-gateway/bitcoin-address-blank
 Type: note
 _Description: No Bitcoin address entered
- you can still configure it in the config file/GUI.
+ You can still configure it in the config file/GUI.
 
 Template: datum-gateway/work_update_seconds
 Type: string
@@ -61,20 +61,20 @@ _Description: Listen port for the API:
 Template: datum-gateway/max_clients_per_thread
 Type: string
 Default: 2000
-_Description: Maximum clients per Stratum server thread:
+_Description: Maximum number of clients per Stratum server thread:
  Must be a number higher than 0.
 
 Template: datum-gateway/max_threads
 Type: string
 Default: 10
-_Description: Maximum Stratum server threads:
+_Description: Maximum number of Stratum server threads:
  Must be a number between 1 and 64.
 
 Template: datum-gateway/max_clients
 Type: string
 Default: 20000
-_Description: Maximum clients:
- Maximum total Stratum clients before rejecting connections.
+_Description: Maximum total number of Stratum:
+ Maximum total number of Stratum clients before rejecting connections.
  Must be a number higher than 0.
 
 Template: datum-gateway/vardiff_min
@@ -99,13 +99,13 @@ Template: datum-gateway/log_level_file
 Type: string
 Default: 2
 _Description: Log level for log file:
- Minimum log level for log file messages 
+ Minimum log level for log file messages. 
  (0=All, 1=Debug, 2=Info, 3=Warn, 4=Error, 5=Fatal)
 
 Template: datum-gateway/pool_pass_workers
 Type: boolean
 Default: true
-_Description: Pass workers to pool?
+_Description: Pass workers usernames to the pool?
  Pass stratum miner usernames as sub-worker names to the pool.
 
 Template: datum-gateway/pool_pass_full_users
@@ -118,5 +118,5 @@ Template: datum-gateway/pooled_mining_only
 Type: boolean
 Default: true
 _Description: Pooled mining only?
- If the DATUM pool server becomes unavailable, terminate miner connections 
+ If the DATUM pool server becomes unavailable, terminate miner connections. 
  (otherwise, 100% of any blocks you find pay mining.pool_address)

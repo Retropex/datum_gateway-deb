@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: datum-gateway\n"
 "Report-Msgid-Bugs-To: datum-gateway@packages.debian.org\n"
-"POT-Creation-Date: 2026-04-23 14:47+0200\n"
+"POT-Creation-Date: 2026-06-01 15:06+0200\n"
 "PO-Revision-Date: 2026-05-11 22:06+0200\n"
 "Last-Translator: poc senderi <pocsenderi@protonmail.com>\n"
 "Language-Team: Catalan <debian-l10n-catalan@lists.debian.org>\n"
@@ -43,7 +43,9 @@ msgstr "Contrasenya de l'API: ${PASSWORD}"
 #. Type: note
 #. Description
 #: ../datum-gateway.templates:2001
-msgid "This password will be asked when accessing the web UI"
+#, fuzzy
+#| msgid "This password will be asked when accessing the web UI"
+msgid "This password will be asked when accessing the web UI."
 msgstr "Aquesta contrasenya serà demanada quan s'accedeixi a la interfície web"
 
 #. Type: boolean
@@ -55,7 +57,9 @@ msgstr "Voleu activar els registres a «/var/log/datum-gateway»?"
 #. Type: boolean
 #. Description
 #: ../datum-gateway.templates:3001
-msgid "This is particularly useful for system that doesn't use systemd."
+#, fuzzy
+#| msgid "This is particularly useful for system that doesn't use systemd."
+msgid "This is particularly useful for systems that don't use systemd."
 msgstr "Això és particularment útil en sistemes que no usen el «systemd»."
 
 #. Type: boolean
@@ -79,9 +83,13 @@ msgstr "L'etiqueta secundària usada en la transacció «coinbase»:"
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:5001
+#, fuzzy
+#| msgid ""
+#| "This tag will be added in the coinbase transaction, it can be anything.  "
+#| "Leave it blank if you want to use the default"
 msgid ""
 "This tag will be added in the coinbase transaction, it can be anything.  "
-"Leave it blank if you want to use the default"
+"Leave it blank if you want to use the default."
 msgstr ""
 "Aquesta etiqueta serà afegida a la transacció «coinbase»; pot ser qualsevol "
 "cosa. Deixeu-ho en blanc si voleu usar el predeterminat"
@@ -95,20 +103,29 @@ msgstr "No s'ha pogut configurar «blocknotify» automàticament"
 #. Type: error
 #. Description
 #: ../datum-gateway.templates:6001
+#, fuzzy
+#| msgid ""
+#| "please add \"blocknotify=killall -USR1 datum_gateway\" to your "
+#| "bitcoin.conf\""
 msgid ""
-"please add \"blocknotify=killall -USR1 datum_gateway\" to your bitcoin.conf\""
+"Please add \"blocknotify=killall -USR1 datum_gateway\" to your bitcoin.conf "
+"file."
 msgstr "Afegiu «blocknotify=killall -USR1 datum_gateway» al «bitcoin.conf»"
 
 #. Type: note
 #. Description
 #: ../datum-gateway.templates:7001
+#, fuzzy
+#| msgid "No Bitcoin address entered"
 msgid "No Bitcoin address entered"
 msgstr "No s'ha introduït cap adreça Bitcoin"
 
 #. Type: note
 #. Description
 #: ../datum-gateway.templates:7001
-msgid "you can still configure it in the config file/GUI."
+#, fuzzy
+#| msgid "you can still configure it in the config file/GUI."
+msgid "You can still configure it in the config file/GUI."
 msgstr ""
 "Tot i així encara podeu configurar-ho al fitxer de configuració o a la "
 "interfície gràfica."
@@ -158,7 +175,9 @@ msgstr "Port on escoltarà l'API web. Ha de ser un nombre entre 5 i 65535."
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:11001
-msgid "Maximum clients per Stratum server thread:"
+#, fuzzy
+#| msgid "Maximum clients per Stratum server thread:"
+msgid "Maximum number of clients per Stratum server thread:"
 msgstr "Màxim de clients per al fil del servidor Stratum:"
 
 #. Type: string
@@ -170,7 +189,9 @@ msgstr "Ha de ser un nombre més gran que 0."
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:12001
-msgid "Maximum Stratum server threads:"
+#, fuzzy
+#| msgid "Maximum Stratum server threads:"
+msgid "Maximum number of Stratum server threads:"
 msgstr "Nombre màxim de fils del servidor Stratum:"
 
 #. Type: string
@@ -182,15 +203,21 @@ msgstr "Ha de ser un nombre entre 1 i 64."
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:13001
-msgid "Maximum clients:"
-msgstr "Màxim de clients:"
+#, fuzzy
+#| msgid "Maximum Stratum server threads:"
+msgid "Maximum total number of Stratum:"
+msgstr "Nombre màxim de fils del servidor Stratum:"
 
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:13001
+#, fuzzy
+#| msgid ""
+#| "Maximum total Stratum clients before rejecting connections. Must be a "
+#| "number higher than 0."
 msgid ""
-"Maximum total Stratum clients before rejecting connections. Must be a number "
-"higher than 0."
+"Maximum total number of Stratum clients before rejecting connections. Must "
+"be a number higher than 0."
 msgstr ""
 "Nombre màxim total de clients Stratum abans de rebutjar connexions. Ha de "
 "ser un nombre més gran que 0."
@@ -245,8 +272,12 @@ msgstr "Nivell de registre pel fitxer de registre:"
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:17001
+#, fuzzy
+#| msgid ""
+#| "Minimum log level for log file messages  (0=All, 1=Debug, 2=Info, 3=Warn, "
+#| "4=Error, 5=Fatal)"
 msgid ""
-"Minimum log level for log file messages  (0=All, 1=Debug, 2=Info, 3=Warn, "
+"Minimum log level for log file messages.  (0=All, 1=Debug, 2=Info, 3=Warn, "
 "4=Error, 5=Fatal)"
 msgstr ""
 "Nivell mínim de registre del missatges al fitxer de registre (0: tots, 1: "
@@ -255,7 +286,9 @@ msgstr ""
 #. Type: boolean
 #. Description
 #: ../datum-gateway.templates:18001
-msgid "Pass workers to pool?"
+#, fuzzy
+#| msgid "Pass workers to pool?"
+msgid "Pass workers usernames to the pool?"
 msgstr "Voleu passar els treballadors al «pool»?"
 
 #. Type: boolean
@@ -291,11 +324,18 @@ msgstr "Voleu fer només minatge agrupat?"
 #. Type: boolean
 #. Description
 #: ../datum-gateway.templates:20001
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "If the DATUM pool server becomes unavailable, terminate miner "
+#| "connections  (otherwise, 100% of any blocks you find pay "
+#| "mining.pool_address)"
 msgid ""
-"If the DATUM pool server becomes unavailable, terminate miner connections  "
+"If the DATUM pool server becomes unavailable, terminate miner connections.  "
 "(otherwise, 100% of any blocks you find pay mining.pool_address)"
 msgstr ""
 "Si el servidor agrupat DATUM esdevé inaccessible, finalitza les connexions "
 "dels minadors (altrament, el 100% de qualsevol bloc que trobeu es pagaran a "
 "«mining.pool_address)"
+
+#~ msgid "Maximum clients:"
+#~ msgstr "Màxim de clients:"
