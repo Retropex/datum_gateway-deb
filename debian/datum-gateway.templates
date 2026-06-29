@@ -97,7 +97,7 @@ _Description: Should the config be modifiable from the dashboard?
 
 Template: datum-gateway/log_level_file
 Type: string
-Default: 2
+Default: 3
 _Description: Log level for log file:
  Minimum log level for log file messages. 
  (0=All, 1=Debug, 2=Info, 3=Warn, 4=Error, 5=Fatal)
