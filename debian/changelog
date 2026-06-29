@@ -1,3 +1,10 @@
+datum-gateway (0.4.1~beta-6) unstable; urgency=medium
+
+  * Default log to file value to 3
+  * Add dependency on psmisc
+
+ -- Léo Haf <leo@haf.ovh>  Mon, 29 Jun 2026 13:17:46 +0200
+
 datum-gateway (0.4.1~beta-5) unstable; urgency=medium
 
   * Set higher LimitNOFILE in systemd service file
