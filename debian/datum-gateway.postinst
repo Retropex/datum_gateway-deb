@@ -90,9 +90,9 @@ case "$1" in
   fi
 
   if [ -d /var/log/datum-gateway ]; then
-    if ! dpkg-statoverride --list /var/log/datum-gateway >/dev/null 2>&1; then
-      dpkg-statoverride --update --add bitcoin adm 0755 /var/log/datum-gateway
-    fi
+    # begin-remove-after: released:forky
+    dpkg-statoverride --remove /var/log/datum-gateway 2>/dev/null || true
+    # end-remove-after
     
     db_get datum-gateway/log || RET=
     if [ "$RET" = "true" ]; then
