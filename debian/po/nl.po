@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: datum-gateway_0.4.1~beta-5\n"
 "Report-Msgid-Bugs-To: datum-gateway@packages.debian.org\n"
-"POT-Creation-Date: 2026-06-01 15:06+0200\n"
+"POT-Creation-Date: 2026-08-12 16:38+0200\n"
 "PO-Revision-Date: 2026-06-04 21:26+0200\n"
 "Last-Translator: Frans Spiesschaert <Frans.Spiesschaert@yucom.be>\n"
 "Language-Team: Debian Dutch l10n Team <debian-l10n-dutch@lists.debian.org>\n"
@@ -36,53 +36,97 @@ msgstr ""
 "miners, wat betekent dat het uitsluitend als noodoplossing wordt gebruikt in "
 "het geval dat de verbinding met de pool wordt verbroken."
 
-#. Type: note
+#. Type: string
 #. Description
 #: ../datum-gateway.templates:2001
+msgid "RPC url:"
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:2001
+msgid "This is the URL of the node that will provide block templates."
+msgstr ""
+
+#. Type: select
+#. Description
+#: ../datum-gateway.templates:3001
+msgid "Do you want to use rpc username/password or cookie?"
+msgstr ""
+
+#. Type: select
+#. Description
+#: ../datum-gateway.templates:3001
+msgid ""
+"By default, bitcoind creates a cookie file in the datadir. But you can use "
+"username/password if configured."
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:4001
+msgid "Cookie path:"
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:4001
+msgid ""
+"Please enter the cookie file path in order for DATUM Gateway to fetch  "
+"templates."
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:5001
+msgid "RPC user:"
+msgstr ""
+
+#. Type: string
+#. Description
+#: ../datum-gateway.templates:6001
+msgid "RPC password:"
+msgstr ""
+
+#. Type: note
+#. Description
+#: ../datum-gateway.templates:7001
+msgid "This field cannot be empty."
+msgstr ""
+
+#. Type: note
+#. Description
+#: ../datum-gateway.templates:8001
 msgid "Password for the API: ${PASSWORD}"
 msgstr "Wachtwoord voor de API: ${PASSWORD}"
 
 #. Type: note
 #. Description
-#: ../datum-gateway.templates:2001
+#: ../datum-gateway.templates:8001
 msgid "This password will be asked when accessing the web UI."
 msgstr "Dit wachtwoord zal gevraagd worden bij het openen van de webinterface."
 
 #. Type: boolean
 #. Description
-#: ../datum-gateway.templates:3001
+#: ../datum-gateway.templates:9001
 msgid "Do you want to enable logs in /var/log/datum-gateway ?"
 msgstr "Wilt u logboekregistratie inschakelen in /var/log/datum-gateway?"
 
 #. Type: boolean
 #. Description
-#: ../datum-gateway.templates:3001
+#: ../datum-gateway.templates:9001
 msgid "This is particularly useful for systems that don't use systemd."
 msgstr "Dit is vooral handig voor systemen die geen gebruik maken van systemd."
 
-#. Type: boolean
-#. Description
-#: ../datum-gateway.templates:4001
-msgid "Do you want to add the blocknotify option in the bitcoin.conf?"
-msgstr "Wilt u de optie blocknotify toevoegen aan het bestand bitcoin.conf?"
-
-#. Type: boolean
-#. Description
-#: ../datum-gateway.templates:4001
-msgid "This is very highly recommended to avoid mining stale work."
-msgstr ""
-"Dit wordt ten zeerste aangeraden om te voorkomen dat u verouderd werk gaat "
-"minen."
-
 #. Type: string
 #. Description
-#: ../datum-gateway.templates:5001
+#: ../datum-gateway.templates:10001
 msgid "The secondary tag used in the coinbase transaction:"
 msgstr "De secundaire tag die in de coinbase-transactie wordt gebruikt:"
 
 #. Type: string
 #. Description
-#: ../datum-gateway.templates:5001
+#: ../datum-gateway.templates:10001
 msgid ""
 "This tag will be added in the coinbase transaction, it can be anything.  "
 "Leave it blank if you want to use the default."
@@ -90,31 +134,15 @@ msgstr ""
 "Deze tag wordt toegevoegd aan de coinbase-transactie; het kan van alles "
 "zijn. Laat het veld leeg als u de standaardtag wilt gebruiken."
 
-#. Type: error
-#. Description
-#: ../datum-gateway.templates:6001
-msgid "Couldn't configure blocknotify automatically"
-msgstr "Blocknotify kon niet automatisch worden geconfigureerd"
-
-#. Type: error
-#. Description
-#: ../datum-gateway.templates:6001
-msgid ""
-"Please add \"blocknotify=killall -USR1 datum_gateway\" to your bitcoin.conf "
-"file."
-msgstr ""
-"Voeg \"blocknotify=killall -USR1 datum_gateway\" toe aan uw bestand "
-"bitcoin.conf."
-
 #. Type: note
 #. Description
-#: ../datum-gateway.templates:7001
+#: ../datum-gateway.templates:11001
 msgid "No Bitcoin address entered"
 msgstr "Geen Bitcoin-adres ingevoerd"
 
 #. Type: note
 #. Description
-#: ../datum-gateway.templates:7001
+#: ../datum-gateway.templates:11001
 msgid "You can still configure it in the config file/GUI."
 msgstr ""
 "U kunt het nog steeds configureren via het configuratiebestand/de grafische "
@@ -122,13 +150,13 @@ msgstr ""
 
 #. Type: string
 #. Description
-#: ../datum-gateway.templates:8001
+#: ../datum-gateway.templates:12001
 msgid "Work update interval in seconds:"
 msgstr "Interval voor werkupdates in seconden:"
 
 #. Type: string
 #. Description
-#: ../datum-gateway.templates:8001
+#: ../datum-gateway.templates:12001
 msgid ""
 "How many seconds between normal work updates. Must be a number between 5 and "
 "120."
@@ -138,13 +166,13 @@ msgstr ""
 
 #. Type: string
 #. Description
-#: ../datum-gateway.templates:9001
+#: ../datum-gateway.templates:13001
 msgid "Listen port:"
 msgstr "Luisteren op poort:"
 
 #. Type: string
 #. Description
-#: ../datum-gateway.templates:9001
+#: ../datum-gateway.templates:13001
 msgid ""
 "Listening port for Stratum Gateway. Must be a number between 5 and 65535."
 msgstr ""
@@ -152,49 +180,49 @@ msgstr ""
 
 #. Type: string
 #. Description
-#: ../datum-gateway.templates:10001
+#: ../datum-gateway.templates:14001
 msgid "Listen port for the API:"
 msgstr "Luisteren op poort voor de API:"
 
 #. Type: string
 #. Description
-#: ../datum-gateway.templates:10001
+#: ../datum-gateway.templates:14001
 msgid "Listening port for the web API. Must be a number between 5 and 65535."
 msgstr "Luisterpoort voor de web-API. Moet een getal zijn tussen 5 en 65535."
 
 #. Type: string
 #. Description
-#: ../datum-gateway.templates:11001
+#: ../datum-gateway.templates:15001
 msgid "Maximum number of clients per Stratum server thread:"
 msgstr "Maximaal aantal clients per Stratum-serverthread:"
 
 #. Type: string
 #. Description
-#: ../datum-gateway.templates:11001
+#: ../datum-gateway.templates:15001
 msgid "Must be a number higher than 0."
 msgstr "Moet een getal groter dan 0 zijn."
 
 #. Type: string
 #. Description
-#: ../datum-gateway.templates:12001
+#: ../datum-gateway.templates:16001
 msgid "Maximum number of Stratum server threads:"
 msgstr "Maximaal aantal Stratum-serverthreads:"
 
 #. Type: string
 #. Description
-#: ../datum-gateway.templates:12001
+#: ../datum-gateway.templates:16001
 msgid "Must be a number between 1 and 64."
 msgstr "Moet een getal tussen 1 en 64 zijn."
 
 #. Type: string
 #. Description
-#: ../datum-gateway.templates:13001
+#: ../datum-gateway.templates:17001
 msgid "Maximum total number of Stratum:"
 msgstr "Maximaal totaal aantal Stratum-serverthreads:"
 
 #. Type: string
 #. Description
-#: ../datum-gateway.templates:13001
+#: ../datum-gateway.templates:17001
 msgid ""
 "Maximum total number of Stratum clients before rejecting connections. Must "
 "be a number higher than 0."
@@ -204,25 +232,25 @@ msgstr ""
 
 #. Type: string
 #. Description
-#: ../datum-gateway.templates:14001
+#: ../datum-gateway.templates:18001
 msgid "Work difficulty floor:"
 msgstr "Minimale moeilijkheidsgraad van het werk:"
 
 #. Type: string
 #. Description
-#: ../datum-gateway.templates:14001
+#: ../datum-gateway.templates:18001
 msgid "Must be a power of two."
 msgstr "Het moet een macht van twee zijn."
 
 #. Type: string
 #. Description
-#: ../datum-gateway.templates:15001
+#: ../datum-gateway.templates:19001
 msgid "The primary tag used in the coinbase transaction:"
 msgstr "De primaire tag die in de coinbase-transactie wordt gebruikt:"
 
 #. Type: string
 #. Description
-#: ../datum-gateway.templates:15001
+#: ../datum-gateway.templates:19001
 msgid ""
 "This tag will be added in the coinbase transaction, it can be anything. The "
 "primary tag will be overridden by the pool if mining in pooled mode."
@@ -233,13 +261,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../datum-gateway.templates:16001
+#: ../datum-gateway.templates:20001
 msgid "Should the config be modifiable from the dashboard?"
 msgstr "Moet de configuratie via het dashboard kunnen worden aangepast?"
 
 #. Type: boolean
 #. Description
-#: ../datum-gateway.templates:16001
+#: ../datum-gateway.templates:20001
 msgid "Enable modifying the config file from API/dashboard."
 msgstr ""
 "De mogelijkheid instellen om het configuratiebestand via de API of het "
@@ -247,13 +275,13 @@ msgstr ""
 
 #. Type: string
 #. Description
-#: ../datum-gateway.templates:17001
+#: ../datum-gateway.templates:21001
 msgid "Log level for log file:"
 msgstr "Logniveau voor logbestand:"
 
 #. Type: string
 #. Description
-#: ../datum-gateway.templates:17001
+#: ../datum-gateway.templates:21001
 msgid ""
 "Minimum log level for log file messages.  (0=All, 1=Debug, 2=Info, 3=Warn, "
 "4=Error, 5=Fatal)"
@@ -263,13 +291,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../datum-gateway.templates:18001
+#: ../datum-gateway.templates:22001
 msgid "Pass workers usernames to the pool?"
 msgstr "Gebruikersnamen van werkers doorgeven aan de pool?"
 
 #. Type: boolean
 #. Description
-#: ../datum-gateway.templates:18001
+#: ../datum-gateway.templates:22001
 msgid "Pass stratum miner usernames as sub-worker names to the pool."
 msgstr ""
 "De gebruikersnamen van de stratum-miners doorgeven aan de pool als namen van "
@@ -277,7 +305,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../datum-gateway.templates:19001
+#: ../datum-gateway.templates:23001
 msgid "Pass stratum miner usernames as raw usernames to the pool?"
 msgstr ""
 "De gebruikersnamen van stratum-miners als onbewerkte gebruikersnamen "
@@ -285,7 +313,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../datum-gateway.templates:19001
+#: ../datum-gateway.templates:23001
 msgid "Use if putting multiple payout addresses on miners behind this gateway."
 msgstr ""
 "Gebruik dit als u meerdere uitbetalingsadressen instelt op miners achter "
@@ -293,13 +321,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../datum-gateway.templates:20001
+#: ../datum-gateway.templates:24001
 msgid "Pooled mining only?"
 msgstr "Alleen gepoold minen?"
 
 #. Type: boolean
 #. Description
-#: ../datum-gateway.templates:20001
+#: ../datum-gateway.templates:24001
 #, no-c-format
 msgid ""
 "If the DATUM pool server becomes unavailable, terminate miner connections.  "

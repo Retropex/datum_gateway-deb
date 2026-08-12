@@ -4,6 +4,37 @@ _Description: The Bitcoin address used for mining:
  By default, this Bitcoin address is overridden by the usernames of miners, 
  meaning it is used solely as a fallback in the event of a pool disconnection.
 
+Template: datum-gateway/rpcurl
+Type: string
+Default: http://localhost:8332
+_Description: RPC url:
+ This is the URL of the node that will provide block templates.
+
+Template: datum-gateway/rpccredorcookie
+Type: select
+Choices: cookie, user/password
+_Description: Do you want to use rpc username/password or cookie?
+ By default, bitcoind creates a cookie file in the datadir.
+ But you can use username/password if configured.
+
+Template: datum-gateway/cookiepath
+Type: string
+_Description: Cookie path:
+ Please enter the cookie file path in order for DATUM Gateway to fetch 
+ templates.
+
+Template: datum-gateway/rpcuser
+Type: string
+_Description: RPC user:
+
+Template: datum-gateway/rpcpassword
+Type: string
+_Description: RPC password:
+
+Template: datum-gateway/emptyfield
+Type: note
+_Description: This field cannot be empty.
+
 Template: datum-gateway/password
 Type: note
 _Description: Password for the API: ${PASSWORD}
@@ -15,22 +46,11 @@ Default: false
 _Description: Do you want to enable logs in /var/log/datum-gateway ?
  This is particularly useful for systems that don't use systemd.
 
-Template: datum-gateway/blocknotify
-Type: boolean
-Default: true
-_Description: Do you want to add the blocknotify option in the bitcoin.conf?
- This is very highly recommended to avoid mining stale work.
-
 Template: datum-gateway/coinbase-tag-secondary
 Type: string
 _Description: The secondary tag used in the coinbase transaction:
  This tag will be added in the coinbase transaction, it can be anything. 
  Leave it blank if you want to use the default.
-
-Template: datum-gateway/blocknotify-fail
-Type: error
-_Description: Couldn't configure blocknotify automatically
- Please add "blocknotify=killall -USR1 datum_gateway" to your bitcoin.conf file.
 
 Template: datum-gateway/bitcoin-address-blank
 Type: note
