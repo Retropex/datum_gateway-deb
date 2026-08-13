@@ -7,6 +7,8 @@ USER="bitcoin"
 # Source debconf library
 . /usr/share/debconf/confmodule
 
+#DEBHELPER#
+
 update_conf_param () {
   local param="$1"
   local json="$2"
@@ -29,7 +31,7 @@ case "$1" in
     PASSWORD=$(pwgen -s 32 1)
     db_set datum-gateway/password "$PASSWORD"
     chown $USER:$USER /etc/datum-gateway/datum_gateway_config.json
-    runuser -u $USER -- jq --arg PASSWORD "$PASSWORD" 'del(.bitcoind.rpcuser) | del(.bitcoind.rpcpassword) | .bitcoind.rpccookiefile = "/var/lib/bitcoin/.cookie" | .mining.pool_address = "" | .api.admin_password = $PASSWORD | .api.modify_conf = true' /etc/datum-gateway/datum_gateway_config.json > /etc/datum-gateway/datum_gateway_config.json.tmp \
+    runuser -u $USER -- jq --arg PASSWORD "$PASSWORD" '.mining.pool_address = "" | .api.admin_password = $PASSWORD | .api.modify_conf = true' /etc/datum-gateway/datum_gateway_config.json > /etc/datum-gateway/datum_gateway_config.json.tmp \
       && mv /etc/datum-gateway/datum_gateway_config.json.tmp /etc/datum-gateway/datum_gateway_config.json
     db_subst datum-gateway/password PASSWORD "$PASSWORD"
     db_fset datum-gateway/password seen false
@@ -65,6 +67,38 @@ case "$1" in
     else
       runuser -u $USER -- jq '.mining.coinbase_tag_primary = "DATUM Gateway"' /etc/datum-gateway/datum_gateway_config.json > /etc/datum-gateway/datum_gateway_config.json.tmp \
         && mv /etc/datum-gateway/datum_gateway_config.json.tmp /etc/datum-gateway/datum_gateway_config.json
+    fi
+    unset RET
+    
+    db_get datum-gateway/rpcurl || RET=
+    if [ "$RET" ]; then
+      runuser -u $USER -- jq --arg URL "$RET" '.bitcoind.rpcurl = $URL' /etc/datum-gateway/datum_gateway_config.json > /etc/datum-gateway/datum_gateway_config.json.tmp \
+        && mv /etc/datum-gateway/datum_gateway_config.json.tmp /etc/datum-gateway/datum_gateway_config.json
+    fi
+    unset RET
+    
+    db_get datum-gateway/rpccredorcookie || RET=
+    if [ "$RET" = "cookie" ]; then
+      db_get datum-gateway/cookiepath || RET=
+      if [ "$RET" ]; then
+        runuser -u $USER -- jq --arg PATH "$RET" '.bitcoind.rpccookiefile = $PATH | del(.bitcoind.rpcuser) | del(.bitcoind.rpcpassword)' /etc/datum-gateway/datum_gateway_config.json > /etc/datum-gateway/datum_gateway_config.json.tmp \
+          && mv /etc/datum-gateway/datum_gateway_config.json.tmp /etc/datum-gateway/datum_gateway_config.json
+      fi
+      unset RET
+    else
+      db_get datum-gateway/rpcuser || RET=
+      if [ "$RET" ]; then
+        runuser -u $USER -- jq --arg USER "$RET" '.bitcoind.rpcuser = $USER | del(.bitcoind.rpccookiefile)' /etc/datum-gateway/datum_gateway_config.json > /etc/datum-gateway/datum_gateway_config.json.tmp \
+          && mv /etc/datum-gateway/datum_gateway_config.json.tmp /etc/datum-gateway/datum_gateway_config.json
+      fi
+      unset RET
+      
+      db_get datum-gateway/rpcpassword || RET=
+      if [ "$RET" ]; then
+        runuser -u $USER -- jq --arg PASS "$RET" '.bitcoind.rpcpassword = $PASS | del(.bitcoind.rpccookiefile)' /etc/datum-gateway/datum_gateway_config.json > /etc/datum-gateway/datum_gateway_config.json.tmp \
+          && mv /etc/datum-gateway/datum_gateway_config.json.tmp /etc/datum-gateway/datum_gateway_config.json
+      fi
+      unset RET
     fi
     unset RET
     
@@ -107,33 +141,10 @@ case "$1" in
     unset RET
   fi
 
-  if [ -f /etc/bitcoin/bitcoin.conf ]; then
-    db_get datum-gateway/blocknotify || RET=
-    if [ "$RET" = "true" ]; then
-      if grep -s -q -E '^#?blocknotify=' /etc/bitcoin/bitcoin.conf; then
-        sed -i -E "/^#?blocknotify=/c\blocknotify=killall -USR1 datum_gateway" /etc/bitcoin/bitcoin.conf
-        invoke-rc.d bitcoin-knots restart || true
-      else
-        db_input high datum-gateway/blocknotify-fail || true
-        db_go || true
-      fi
-    elif [ "$RET" = "false" ]; then
-      if grep -s -q -E '^#?blocknotify=' /etc/bitcoin/bitcoin.conf; then
-        sed -i -E "/^#?blocknotify=/c\#blocknotify=<cmd>" /etc/bitcoin/bitcoin.conf
-        invoke-rc.d bitcoin-knots restart || true
-      else
-        db_input high datum-gateway/blocknotify-fail || true
-        db_go || true
-      fi
-    fi
-    unset RET
-  fi
+  invoke-rc.d datum-gateway restart || true
 
   db_stop
   ;;
 esac
-
-
-#DEBHELPER#
 
 exit 0

@@ -1,4 +1,5 @@
 datum-gateway: spelling-error-in-binary acces access [usr/bin/datum_gateway]
+datum-gateway: malformed-title-in-templates datum-gateway/emptyfield [templates:58]
 
 # false positive due to bash function
 datum-gateway: unused-debconf-template datum-gateway/modify_conf [templates:*]
