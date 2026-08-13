@@ -7,6 +7,8 @@ USER="bitcoin"
 # Source debconf library
 . /usr/share/debconf/confmodule
 
+#DEBHELPER#
+
 update_conf_param () {
   local param="$1"
   local json="$2"
@@ -142,8 +144,5 @@ case "$1" in
   db_stop
   ;;
 esac
-
-
-#DEBHELPER#
 
 exit 0
