@@ -141,6 +141,8 @@ case "$1" in
     unset RET
   fi
 
+  invoke-rc.d datum-gateway restart || true
+
   db_stop
   ;;
 esac
