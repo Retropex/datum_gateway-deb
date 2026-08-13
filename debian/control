@@ -5,7 +5,8 @@ Standards-Version: 4.7.4
 Homepage: https://ocean.xyz
 Vcs-Git: https://salsa.debian.org/cryptocoin-team/datum-gateway.git
 Vcs-Browser: https://salsa.debian.org/cryptocoin-team/datum-gateway
-Build-Depends: debhelper-compat (= 14),
+Build-Depends: debhelper-compat (= 13),
+ dh-sequence-single-binary,
  dh-sequence-installsysusers,
  cmake,
  pkgconf,

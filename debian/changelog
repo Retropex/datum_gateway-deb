@@ -1,3 +1,10 @@
+datum-gateway (0.4.1~beta-8~bpo13+1) trixie-backports; urgency=medium
+
+  * Rebuild for trixie-backports.
+  * Downgrade debhelper to 13.
+
+ -- Léo Haf <leo@haf.ovh>  Thu, 13 Aug 2026 11:45:58 +0200
+
 datum-gateway (0.4.1~beta-8) unstable; urgency=medium
 
   * Support any gbt node
