@@ -1,3 +1,11 @@
+datum-gateway (0.4.1~beta-8) unstable; urgency=medium
+
+  * Update to debhelper 14
+  * Use core as dependency
+  * fix pt_BR traduction
+
+ -- Léo Haf <leo@haf.ovh>  Wed, 26 Aug 2026 14:31:40 +0200
+
 datum-gateway (0.4.1~beta-7) unstable; urgency=medium
 
   * Fix "[INTL:nl] Dutch debconf templates translation" (Closes: #1140086)
