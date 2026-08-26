@@ -1,7 +1,7 @@
 [Unit]
 Description=DATUM Gateway
 Documentation=man:datum_gateway
-After=bitcoin-knots.service
+After=bitcoin-core.service
 [Service]
 User=bitcoin
 ExecStart=/usr/bin/datum_gateway -c /etc/datum-gateway/datum_gateway_config.json

@@ -19,7 +19,7 @@ Package: datum-gateway
 Architecture: amd64 arm64
 Depends: ${shlibs:Depends},
  ${misc:Depends},
- bitcoin-knots,
+ bitcoin-core,
  pwgen,
  jq,
  debconf,

@@ -112,7 +112,7 @@ case "$1" in
     if [ "$RET" = "true" ]; then
       if grep -s -q -E '^#?blocknotify=' /etc/bitcoin/bitcoin.conf; then
         sed -i -E "/^#?blocknotify=/c\blocknotify=killall -USR1 datum_gateway" /etc/bitcoin/bitcoin.conf
-        invoke-rc.d bitcoin-knots restart || true
+        invoke-rc.d bitcoin-core restart || true
       else
         db_input high datum-gateway/blocknotify-fail || true
         db_go || true
@@ -120,7 +120,7 @@ case "$1" in
     elif [ "$RET" = "false" ]; then
       if grep -s -q -E '^#?blocknotify=' /etc/bitcoin/bitcoin.conf; then
         sed -i -E "/^#?blocknotify=/c\#blocknotify=<cmd>" /etc/bitcoin/bitcoin.conf
-        invoke-rc.d bitcoin-knots restart || true
+        invoke-rc.d bitcoin-core restart || true
       else
         db_input high datum-gateway/blocknotify-fail || true
         db_go || true
