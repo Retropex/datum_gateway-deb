@@ -1,5 +1,6 @@
-datum-gateway (0.4.1~beta-8) trixie; urgency=medium
+datum-gateway (0.4.1~beta-8~noble1) noble; urgency=medium
 
+  * revert sysusers/tmpfiles switch for ubuntu noble
   * Miscs fixes for stable
   * Update to debhelper 13
   * Use core as dependency
