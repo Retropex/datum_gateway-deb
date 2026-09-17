@@ -17,7 +17,7 @@ Build-Depends: debhelper-compat (= 13),
 
 Package: datum-gateway
 Architecture: amd64 arm64
-Pre-Depends: ${misc:Pre-Depends}
+Pre-Depends: ${misc:Pre-Depends}, init-system-helpers (>= 1.54~)
 Depends: ${shlibs:Depends},
  ${misc:Depends},
  bitcoin-core,
