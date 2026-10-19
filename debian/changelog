@@ -1,3 +1,10 @@
+datum-gateway (0.5.0~beta-1~resolute1) resolute; urgency=medium
+
+  * Update to upstream version (v0.5.0beta)
+  * Remove libevent patch
+
+ -- Léo Haf <leo@haf.ovh>  Mon, 19 Oct 2026 14:04:05 +0200
+
 datum-gateway (0.4.1~beta-8~resolute1) resolute; urgency=medium
 
   * revert sysusers/tmpfiles switch for ubuntu resolute
