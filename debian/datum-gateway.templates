@@ -60,7 +60,7 @@ _Description: Listen port for the API:
 
 Template: datum-gateway/max_clients_per_thread
 Type: string
-Default: 2000
+Default: 500
 _Description: Maximum number of clients per Stratum server thread:
  Must be a number higher than 0.
 
@@ -72,7 +72,7 @@ _Description: Maximum number of Stratum server threads:
 
 Template: datum-gateway/max_clients
 Type: string
-Default: 20000
+Default: 5000
 _Description: Maximum total number of Stratum:
  Maximum total number of Stratum clients before rejecting connections.
  Must be a number higher than 0.
