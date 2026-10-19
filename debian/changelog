@@ -1,3 +1,9 @@
+datum-gateway (0.5.0~beta-1~bpo13+1) trixie-backports; urgency=medium
+
+  * Rebuild for trixie-backports.
+
+ -- Léo Haf <leo@haf.ovh>  Mon, 19 Oct 2026 13:35:09 +0200
+
 datum-gateway (0.5.0~beta-1) unstable; urgency=medium
 
   * Update to upstream version (v0.4.1beta)
