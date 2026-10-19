@@ -66,7 +66,7 @@ typedef struct {
 		bool default_bool;
 		struct {
 			int max_string_len;
-			const char *default_string[DATUM_CONFIG_MAX_ARRAY_ENTRIES];
+			const char *default_string[1];
 		};
 	};
 	
@@ -137,6 +137,7 @@ typedef struct {
 	int api_listen_port;
 	bool api_allow_insecure_auth;
 	bool api_modify_conf;
+	bool api_json_api;
 	json_t *config_json;
 	
 	int extra_block_submissions_count;

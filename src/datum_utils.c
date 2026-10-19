@@ -105,6 +105,7 @@ void datum_utils_init(void) {
 #ifdef __GNUC__
 // faster, less portable
 uint64_t roundDownToPowerOfTwo_64(uint64_t x) {
+	if (x == 0) return 0;  // __builtin_clzll(0) is undefined
 	return 1ULL << (63 - __builtin_clzll(x));
 }
 
@@ -250,22 +251,30 @@ long double get_approx_achieved_diff(const unsigned char *bytes) {
 	return dividend / divisor;
 }
 
-void nbits_to_target(uint32_t nbits, uint8_t *target) {
+bool nbits_to_target(uint32_t nbits, uint8_t *target) {
 	uint32_t exponent = (nbits >> 24) & 0xff;
 	uint32_t mantissa = nbits & 0xffffff;
 	int i;
 	
 	memset(target, 0, 32);
+	
+	if ((mantissa & 0x800000) || (mantissa == 0)) return false;
+	if ((exponent > 34) || ((mantissa > 0xff) && (exponent > 33)) || ((mantissa > 0xffff) && (exponent > 32))) return false;
+	
 	if (exponent <= 3) {
 		mantissa >>= 8 * (3 - exponent);
+		if (!mantissa) return false;
 		for (i = 0; i < 3; i++) {
 			target[i] = (mantissa >> (8 * i)) & 0xff;
 		}
 	} else {
 		for (i = 0; i < 3; i++) {
-			target[i + exponent - 3] = (mantissa >> (8 * i)) & 0xff;
+			if ((i + exponent - 3) < 32) {
+				target[i + exponent - 3] = (mantissa >> (8 * i)) & 0xff;
+			}
 		}
 	}
+	return true;
 }
 
 int compare_hashes(const uint8_t *share_hash, const uint8_t *target) {
@@ -824,6 +833,7 @@ void datum_reexec() {
 	// execv shouldn't return!
 	
 	DLOG_FATAL("Failed to restart! We're too deep in to recover!");
+	sleep(1);
 	abort();
 }
 
@@ -851,4 +861,20 @@ const char *dynamic_hash_unit(double * const inout_hashrate){
 	} else {
 		return "Th/s";
 	}
+}
+
+void truncate_char_array(int count, ...) {
+	va_list args;
+	va_start(args, count);
+	
+	for (int i = 0; i < count; i++) {
+		char *var = va_arg(args, char*);
+		for (int j = 0; var[j] != '\0'; j++) {
+ 			if (var[j] == ' ') {
+ 				var[j] = '\0';
+ 				break;
+ 			}
+ 		}
+	}
+	va_end(args);
 }
