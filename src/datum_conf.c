@@ -38,11 +38,13 @@
 #include <assert.h>
 #include <limits.h>
 #include <math.h>
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
 #include <jansson.h>
+#include <sodium.h>
 
 #include "datum_conf.h"
 #include "datum_jsonrpc.h"
@@ -141,6 +143,8 @@ const T_DATUM_CONFIG_ITEM datum_config_options[] = {
 	{ .var_type = DATUM_CONF_BOOL, 		.category = "api",	 		.name = "modify_conf",				.description = "Enable modifying the config file from API/dashboard",
 		.example_default = true,
 		.required = false, .ptr = &datum_config.api_modify_conf, 						.default_bool = false },
+	{ .var_type = DATUM_CONF_BOOL, 		.category = "api",			.name = "json_api", 			.description = "Enable the JSON API endpoints",
+		.required = false, .ptr = &datum_config.api_json_api,							.default_bool = true},
 	
 	// extra block submissions list
 	{ .var_type = DATUM_CONF_STRING_ARRAY, 	.category = "extra_block_submissions", 	.name = "urls",		.description = "Array of bitcoind RPC URLs to submit our blocks to directly.  Include auth info: http://user:pass@IP",
@@ -292,7 +296,11 @@ int datum_config_parse_username_mods(struct datum_username_mod ** const umods_p,
 	}
 	
 	uint8_t *p = malloc(sz);
-	assert(p);
+	if (!p) {
+		fprintf(stderr, "%s: Couldn't allocate memory (%llu bytes)\n", __func__, (unsigned long long)sz);
+		fflush(stderr);
+		abort();
+	}
 	*umods_p = (struct datum_username_mod*)p;
 	json_object_foreach(item, modname, moddefn) {
 		if (json_is_null(moddefn)) continue;
@@ -394,16 +402,19 @@ int datum_config_parse_value(const T_DATUM_CONFIG_ITEM *c, json_t *item) {
 			size_t index;
 			json_t *value;
 			int i = 0;
+			char (* const arr)[DATUM_MAX_SUBMIT_URL_LEN] = c->ptr;
 			
 			json_array_foreach(item, index, value) {
 				if (!json_is_string(value)) return -1;
-				if (i < (DATUM_CONFIG_MAX_ARRAY_ENTRIES-1)) {
-					strncpy(((char (*)[1024])c->ptr)[i], json_string_value(value), c->max_string_len-1);
-					((char (*)[1024])c->ptr)[i][c->max_string_len-1] = 0;
-					i++;
-				}
+				if (i >= DATUM_CONFIG_MAX_ARRAY_ENTRIES - 1) return -3;
+				const size_t value_len = json_string_length(value);
+				if (value_len == 0) return -4;
+				if (value_len > c->max_string_len - 1) return -2;
+				memcpy(arr[i], json_string_value(value), value_len);
+				arr[i][value_len] = '\0';
+				i++;
 			}
-			((char (*)[1024])c->ptr)[i][0] = 0;
+			arr[i][0] = '\0';
 			return 1;
 		}
 		
@@ -459,6 +470,12 @@ int datum_read_config(const char *conffile) {
 			return -1;
 		} else if (j == -2) {
 			DLOG_ERROR("Configuration option %s.%s exceeds maximum length of %d", datum_config_options[i].category, datum_config_options[i].name, datum_config_options[i].max_string_len - 1);
+			return -1;
+		} else if (j == -3) {
+			DLOG_ERROR("Configuration option %s.%s exceeds maximum list size of %u", datum_config_options[i].category, datum_config_options[i].name, (unsigned int)(DATUM_CONFIG_MAX_ARRAY_ENTRIES - 1));
+			return -1;
+		} else if (j == -4) {
+			DLOG_ERROR("Configuration option %s.%s cannot include empty strings", datum_config_options[i].category, datum_config_options[i].name);
 			return -1;
 		}
 	}
@@ -516,16 +533,13 @@ int datum_read_config(const char *conffile) {
 #else
 	datum_config.api_admin_password_len = strlen(datum_config.api_admin_password);
 	if (datum_config.api_admin_password_len) {
-		static const char hash_tag[] = "DATUM Anti-CSRF Token";
-		const size_t data_max_sz = sizeof(hash_tag) + sizeof(datum_config.api_listen_port) + sizeof(datum_config.api_admin_password);
-		const size_t data_sz = sizeof(hash_tag) + sizeof(datum_config.api_listen_port) + datum_config.api_admin_password_len;
-		char data[data_max_sz];
-		strcpy(data, hash_tag);
-		memcpy(&data[sizeof(hash_tag)], &datum_config.api_listen_port, sizeof(datum_config.api_listen_port));
-		strcpy(&data[sizeof(hash_tag)+sizeof(datum_config.api_listen_port)], datum_config.api_admin_password);
-		unsigned char hash[32];
-		my_sha256(hash, data, data_sz);
-		hash2hex(hash, datum_config.api_csrf_token);
+		if (sodium_init() < 0) {
+			DLOG_FATAL("libsodium initialization failed");
+			return 0;
+		}
+		unsigned char token[32];
+		randombytes_buf(token, sizeof(token));
+		hash2hex(token, datum_config.api_csrf_token);
 	}
 #endif
 	
@@ -704,7 +718,7 @@ void datum_gateway_example_conf(void) {
 				}
 				
 				case DATUM_CONF_STRING_ARRAY: {
-					puts("[]");
+					printf("[]");
 					break;
 				}
 				
