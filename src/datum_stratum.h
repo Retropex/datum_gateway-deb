@@ -37,6 +37,7 @@
 #define _DATUM_STRATUM_H_
 
 #include <stdbool.h>
+#include <stdint.h>
 
 #ifndef T_DATUM_CLIENT_DATA
 	#include "datum_sockets.h"
@@ -174,6 +175,7 @@ typedef struct {
 	bool is_datum_job;
 	unsigned char datum_job_idx;
 	unsigned char datum_coinbaser_id;
+	uint32_t prime_id;
 } T_DATUM_STRATUM_JOB;
 
 typedef struct T_DATUM_STRATUM_THREADPOOL_DATA {

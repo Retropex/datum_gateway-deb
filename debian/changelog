@@ -1,3 +1,13 @@
+datum-gateway (0.5.0~beta-1) unstable; urgency=medium
+
+  * Update to upstream version (v0.4.1beta)
+  * Fix "[INTL:pt] Portuguese translation - debconf messages" (Closes: #1144492)
+  * Fix "[INTL:de] Updated German debconf translation" (Closes: #1144510)
+  * Fix "[INTL:nl] Dutch debconf templates translation" (Closes: #1150606)
+  * Remove libevent patch
+
+ -- Léo Haf <leo@haf.ovh>  Mon, 19 Oct 2026 12:05:01 +0200
+
 datum-gateway (0.4.1~beta-8~bpo13+1) trixie-backports; urgency=medium
 
   * Rebuild for trixie-backports.

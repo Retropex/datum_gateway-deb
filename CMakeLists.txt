@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.13)
 
-project(DATUM VERSION 0.4.1 LANGUAGES C)
+project(DATUM VERSION 0.5.0 LANGUAGES C)
 
 # Enable C23 if supported, else fall back to C11 for compatibility
 if(CMAKE_VERSION VERSION_LESS "3.21")
@@ -31,6 +31,7 @@ add_executable(datum_gateway
 	src/datum_stratum.c
 	src/datum_stratum_dupes.c
 	src/datum_stratum_tests.c
+	src/datum_stratum_dupes_tests.c
 	src/datum_submitblock.c
 	src/datum_utils.c
 	src/datum_utils_tests.c
@@ -47,6 +48,7 @@ set(WEB_RESOURCES
 	www/coinbaser_top.html
 	www/config.html
 	www/config_errors.html
+	www/config_noauth_top.html
 	www/config_restart.html
 	www/threads_top.html
 	www/foot.html
@@ -149,7 +151,7 @@ target_compile_options(datum_gateway
 )
 
 if(ENABLE_API)
-	target_sources(datum_gateway PRIVATE src/datum_api.c)
+	target_sources(datum_gateway PRIVATE src/datum_api.c src/datum_json_api.c)
 	target_include_directories(datum_gateway PRIVATE ${MICROHTTPD_INCLUDE_DIRS})
 	target_link_directories(datum_gateway PUBLIC ${MICROHTTPD_LIBRARY_DIRS})
 	target_link_libraries(datum_gateway PUBLIC ${MICROHTTPD_LIBRARIES} ${MICROHTTPD_LDFLAGS} ${MICROHTTPD_LDFLAGS_OTHER})
@@ -159,12 +161,13 @@ if(ENABLE_API)
 	)
 endif()
 
-install(FILES README.md DESTINATION ${CMAKE_INSTALL_DOCDIR})
+install(FILES README.md CONTRIBUTING.md SECURITY.md LICENSE DESTINATION ${CMAKE_INSTALL_DOCDIR})
 install(FILES doc/DATUM_recommended_setup-network_diagram.svg DESTINATION ${CMAKE_INSTALL_DOCDIR}/doc)
-install(FILES doc/usernames.md DESTINATION ${CMAKE_INSTALL_DOCDIR}/doc)
+install(FILES doc/INSTALL.md doc/OPTIMIZATIONS.md doc/usernames.md doc/json_api.md doc/original.md doc/original.txt DESTINATION ${CMAKE_INSTALL_DOCDIR}/doc)
 
 set(PREGEN_DOC ${CMAKE_SOURCE_DIR}/doc/example_datum_gateway_config.json)
 install(FILES ${PREGEN_DOC} DESTINATION ${CMAKE_INSTALL_DOCDIR})
+install(FILES ${PREGEN_DOC} DESTINATION ${CMAKE_INSTALL_DOCDIR}/doc)
 
 if(NOT CMAKE_CROSSCOMPILING)
 	set(GENERATED_DOC ${CMAKE_BINARY_DIR}/CMakeFiles/generated_example_datum_gateway_config.json)
