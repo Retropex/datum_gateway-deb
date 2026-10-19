@@ -37,6 +37,7 @@
 // It's kind of unlikely that a sane miner would be purposefully providing empty templates, but
 // this is a low priority bug to address nonetheless.
 
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -59,12 +60,13 @@ const char *cbstart_hex = "01000000010000000000000000000000000000000000000000000
 
 #define MAX_COINBASE_TAG_SPACE 86 // leaves space for BIP34 height, extranonces, datum prime tag, etc.
 
-int generate_coinbase_input(int height, char *cb, int *target_pot_index) {
+int generate_coinbase_input(int height, char *cb, int *target_pot_index, uint32_t *prime_id_out) {
 	int cb_input_sz = 0;
 	int tag_len[2] = { 0, 0 };
 	int k, m, i;
 	int excess;
 	bool datum_active = false;
+	const uint32_t prime_id = datum_config.prime_id;
 	
 	// let's figure out our coinbase tags w/BIP34 height
 	i = append_UNum_hex(height, &cb[0]);
@@ -159,22 +161,24 @@ int generate_coinbase_input(int height, char *cb, int *target_pot_index) {
 	}
 	
 	// append the coinbase unique ID tag
-	if ((datum_config.prime_id == 0) && (!datum_active)) {
+	if ((prime_id == 0) && (!datum_active)) {
 		uchar_to_hex(&cb[i], 0x03); i+=2; cb_input_sz++;
 		if (target_pot_index != NULL) *target_pot_index = cb_input_sz;
 		uchar_to_hex(&cb[i], 0xFF); i+=2; cb_input_sz++; // placehodler for PoT target
 		uchar_to_hex(&cb[i], (datum_config.coinbase_unique_id&0xFF)); i+=2; cb_input_sz++;
 		uchar_to_hex(&cb[i], ((datum_config.coinbase_unique_id>>8)&0xFF)); i+=2; cb_input_sz++;
+		if (prime_id_out != NULL) *prime_id_out = 0;
 	} else {
 		uchar_to_hex(&cb[i], 0x07); i+=2; cb_input_sz++;
 		if (target_pot_index != NULL) *target_pot_index = cb_input_sz;
 		uchar_to_hex(&cb[i], 0xFF); i+=2; cb_input_sz++; // placeholder for PoT target
 		uchar_to_hex(&cb[i], (datum_config.coinbase_unique_id&0xFF)); i+=2; cb_input_sz++;
 		uchar_to_hex(&cb[i], ((datum_config.coinbase_unique_id>>8)&0xFF)); i+=2; cb_input_sz++;
-		uchar_to_hex(&cb[i], (datum_config.prime_id&0xFF)); i+=2; cb_input_sz++;
-		uchar_to_hex(&cb[i], ((datum_config.prime_id>>8)&0xFF)); i+=2; cb_input_sz++;
-		uchar_to_hex(&cb[i], ((datum_config.prime_id>>16)&0xFF)); i+=2; cb_input_sz++;
-		uchar_to_hex(&cb[i], ((datum_config.prime_id>>24)&0xFF)); i+=2; cb_input_sz++;
+		uchar_to_hex(&cb[i], (prime_id&0xFF)); i+=2; cb_input_sz++;
+		uchar_to_hex(&cb[i], ((prime_id>>8)&0xFF)); i+=2; cb_input_sz++;
+		uchar_to_hex(&cb[i], ((prime_id>>16)&0xFF)); i+=2; cb_input_sz++;
+		uchar_to_hex(&cb[i], ((prime_id>>24)&0xFF)); i+=2; cb_input_sz++;
+		if (prime_id_out != NULL) *prime_id_out = prime_id;
 	}
 	
 	return cb_input_sz;
@@ -350,6 +354,11 @@ void generate_base_coinbase_txns_for_stratum_job(T_DATUM_STRATUM_JOB *s, bool ne
 	
 	if (datum_protocol_is_active()) {
 		// DATUM
+		if (datum_config.override_mining_pool_scriptsig_len > sizeof(s->pool_addr_script)) {
+			DLOG_FATAL("Pool payout scriptsig length %d exceeds %zu-byte field! Refusing to generate coinbase.", datum_config.override_mining_pool_scriptsig_len, sizeof(s->pool_addr_script));
+			panic_from_thread(__LINE__);
+			return;
+		}
 		s->pool_addr_script_len = datum_config.override_mining_pool_scriptsig_len;
 		memcpy(&s->pool_addr_script[0], datum_config.override_mining_pool_scriptsig, datum_config.override_mining_pool_scriptsig_len);
 		s->is_datum_job = true;
@@ -367,7 +376,7 @@ void generate_base_coinbase_txns_for_stratum_job(T_DATUM_STRATUM_JOB *s, bool ne
 	memcpy(&s->coinbase[0].coinb1[0], cbstart_hex, j);
 	cb1idx[0] = j;
 	
-	cb_input_sz = generate_coinbase_input(s->height, &cb[0], &target_pot_index);
+	cb_input_sz = generate_coinbase_input(s->height, &cb[0], &target_pot_index, &s->prime_id);
 	i = cb_input_sz << 1;
 	
 	// null terminate... probably not needed
@@ -546,7 +555,7 @@ void generate_coinbase_txns_for_stratum_job(T_DATUM_STRATUM_JOB *s, bool empty_o
 		cb1idx[i] = j;
 	}
 	
-	cb_input_sz = generate_coinbase_input(s->height, &cb[0], &target_pot_index);
+	cb_input_sz = generate_coinbase_input(s->height, &cb[0], &target_pot_index, &s->prime_id);
 	s->target_pot_index = target_pot_index;
 	i = cb_input_sz << 1;
 	
@@ -775,7 +784,7 @@ int datum_coinbaser_v2_parse(T_DATUM_STRATUM_JOB *s, unsigned char *coinbaser, i
 	
 	if (cblen < 9) {
 		// 0 outputs possible
-		DLOG_WARN("Coinbaser lentgh is invalid (too short). Using default/empty");
+		DLOG_WARN("Coinbaser length is invalid (too short). Using default/empty");
 		s->available_coinbase_outputs_count = 0;
 		return 0;
 	}
@@ -785,6 +794,11 @@ int datum_coinbaser_v2_parse(T_DATUM_STRATUM_JOB *s, unsigned char *coinbaser, i
 	datum_id = coinbaser[cidx]; cidx++;
 	
 	while (cidx < cblen) {
+		if (cidx + 8 + 1 > cblen) {
+			DLOG_ERROR("Coinbaser length is invalid (mid-parsing). Using default/empty");
+			s->available_coinbase_outputs_count = 0;
+			return 0;
+		}
 		outval = upk_u64le(coinbaser, cidx); cidx+=8;
 		if ((outval + tally) > s->coinbase_value) {
 			// we can't include this value, since it would put us over our total available!
@@ -792,9 +806,10 @@ int datum_coinbaser_v2_parse(T_DATUM_STRATUM_JOB *s, unsigned char *coinbaser, i
 			break;
 		}
 		slen = coinbaser[cidx]; cidx++;
-		if ((slen < 2) || (slen > 64)) {
-			// invalid script len?!?
-			break;
+		if (slen < 2 || slen > 64 || cidx + slen > cblen) {
+			DLOG_ERROR("Script length (%d) is invalid. Using default/empty", slen);
+			s->available_coinbase_outputs_count = 0;
+			return 0;
 		}
 		
 		tally += outval;

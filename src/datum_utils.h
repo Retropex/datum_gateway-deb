@@ -57,7 +57,7 @@ uint64_t get_process_uptime_seconds(void);
 unsigned char hex2bin_uchar(const char *in);
 void build_hex_lookup(void);
 bool my_sha256(void *digest, const void *buffer, size_t length);
-void nbits_to_target(uint32_t nbits, uint8_t *target);
+bool nbits_to_target(uint32_t nbits, uint8_t *target);
 int compare_hashes(const uint8_t *hash1, const uint8_t *hash2);
 unsigned long long block_reward(unsigned int block_height);
 int append_bitcoin_varint_hex(uint64_t n, char *s);
@@ -88,6 +88,7 @@ char **datum_deepcopy_charpp(const char * const *p);
 void datum_reexec();
 bool datum_secure_strequals(const char *secret, const size_t secret_len, const char *guess);
 const char *dynamic_hash_unit(double *inout_hashrate);
+void truncate_char_array(int count, ...);
 
 
 static inline size_t datum_align_sz(const size_t min_sz, const size_t alignment) {
