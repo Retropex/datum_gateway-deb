@@ -16,5 +16,7 @@ execute_after_dh_auto_install:
 execute_after_dh_installdocs:
 	mv debian/datum-gateway/usr/share/doc/datum-gateway/doc/DATUM_recommended_setup-network_diagram.svg debian/datum-gateway/usr/share/doc/datum-gateway/
 	mv debian/datum-gateway/usr/share/doc/datum-gateway/doc/usernames.md debian/datum-gateway/usr/share/doc/datum-gateway/
-	rmdir debian/datum-gateway/usr/share/doc/datum-gateway/doc
+	rm -rf debian/datum-gateway/usr/share/doc/datum-gateway/doc
 	rm -f debian/datum-gateway/usr/share/doc/datum-gateway/example_datum_gateway_config.json
+	rm -f debian/datum-gateway/usr/share/doc/datum-gateway/LICENSE
+	rm -f debian/datum-gateway/usr/share/doc/datum-gateway/README.md
