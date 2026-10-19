@@ -1,0 +1,5 @@
+Once datum_gateway is configured and running it's strongly advised to add this line to your bitcoin.conf and restart it:
+
+blocknotify=killall -USR1 datum_gateway
+
+It will avoid mining stale work.
