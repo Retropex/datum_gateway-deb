@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: datum-gateway 0.4.1~beta-5\n"
+"Project-Id-Version: datum-gateway 0.4.1~beta-8\n"
 "Report-Msgid-Bugs-To: datum-gateway@packages.debian.org\n"
 "POT-Creation-Date: 2026-08-12 16:38+0200\n"
-"PO-Revision-Date: 2026-06-06 20:29+0200\n"
+"PO-Revision-Date: 2026-08-16 10:16+0200\n"
 "Last-Translator: Helge Kreutzmann <debian@helgefjell.de>\n"
 "Language-Team: German <debian-l10n-german@lists.debian.org>\n"
 "Language: de\n"
@@ -37,19 +37,19 @@ msgstr ""
 #. Description
 #: ../datum-gateway.templates:2001
 msgid "RPC url:"
-msgstr ""
+msgstr "RPC URL:"
 
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:2001
 msgid "This is the URL of the node that will provide block templates."
-msgstr ""
+msgstr "Dies ist die URL des Knotens, der Blockvorlagen bereitstellen wird."
 
 #. Type: select
 #. Description
 #: ../datum-gateway.templates:3001
 msgid "Do you want to use rpc username/password or cookie?"
-msgstr ""
+msgstr "Möchten Sie RPC-Benutzernamen/Passwort oder Cookies verwenden?"
 
 #. Type: select
 #. Description
@@ -58,12 +58,14 @@ msgid ""
 "By default, bitcoind creates a cookie file in the datadir. But you can use "
 "username/password if configured."
 msgstr ""
+"Standardmäßig erstellt Bitcoind eine Cookie-Datei im Datenverzeichnis. Sie "
+"können aber, falls konfiguriert, Benutzername/Passwort verwenden."
 
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:4001
 msgid "Cookie path:"
-msgstr ""
+msgstr "Cookie-Pfad:"
 
 #. Type: string
 #. Description
@@ -72,24 +74,26 @@ msgid ""
 "Please enter the cookie file path in order for DATUM Gateway to fetch  "
 "templates."
 msgstr ""
+"Bitte geben Sie den Cookie-Dateipfad ein, damit das DATUM-Gateway die "
+"Vorlagen abholen kann."
 
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:5001
 msgid "RPC user:"
-msgstr ""
+msgstr "RPC-Benutzer:"
 
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:6001
 msgid "RPC password:"
-msgstr ""
+msgstr "RPC-Passwort:"
 
 #. Type: note
 #. Description
 #: ../datum-gateway.templates:7001
 msgid "This field cannot be empty."
-msgstr ""
+msgstr "Dieses Feld darf nicht leer sein."
 
 #. Type: note
 #. Description
