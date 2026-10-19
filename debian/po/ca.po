@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: datum-gateway\n"
 "Report-Msgid-Bugs-To: datum-gateway@packages.debian.org\n"
 "POT-Creation-Date: 2026-08-12 16:38+0200\n"
-"PO-Revision-Date: 2026-06-04 16:53+0100\n"
+"PO-Revision-Date: 2026-08-17 21:34+0100\n"
 "Last-Translator: poc senderi <pocsenderi@protonmail.com>\n"
 "Language-Team: Catalan <debian-l10n-catalan@lists.debian.org>\n"
 "Language: ca\n"
@@ -38,19 +38,20 @@ msgstr ""
 #. Description
 #: ../datum-gateway.templates:2001
 msgid "RPC url:"
-msgstr ""
+msgstr "URL de l'RPC:"
 
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:2001
 msgid "This is the URL of the node that will provide block templates."
-msgstr ""
+msgstr "Aquest és l'URL del node que proporcionarà les plantilles de bloc."
 
 #. Type: select
 #. Description
 #: ../datum-gateway.templates:3001
 msgid "Do you want to use rpc username/password or cookie?"
 msgstr ""
+"Voleu usar nom d'usuari i contrasenya o una galeta («cookie») per a l'RPC?"
 
 #. Type: select
 #. Description
@@ -59,12 +60,15 @@ msgid ""
 "By default, bitcoind creates a cookie file in the datadir. But you can use "
 "username/password if configured."
 msgstr ""
+"Per defecte, el «bitcoind» crea un fitxer amb una galeta al directori de "
+"dades. Alternativament, ho podeu configurar per a usar un nom d'usuari i "
+"contrasenya."
 
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:4001
 msgid "Cookie path:"
-msgstr ""
+msgstr "Ubicació de la galeta:"
 
 #. Type: string
 #. Description
@@ -73,24 +77,26 @@ msgid ""
 "Please enter the cookie file path in order for DATUM Gateway to fetch  "
 "templates."
 msgstr ""
+"Introduïu la ubicació del fitxer amb la galeta («cookie») per tal de "
+"carregar les plantilles del DATUM Gateway."
 
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:5001
 msgid "RPC user:"
-msgstr ""
+msgstr "Usuari RPC:"
 
 #. Type: string
 #. Description
 #: ../datum-gateway.templates:6001
 msgid "RPC password:"
-msgstr ""
+msgstr "Contrasenya RPC:"
 
 #. Type: note
 #. Description
 #: ../datum-gateway.templates:7001
 msgid "This field cannot be empty."
-msgstr ""
+msgstr "Aquest camp no es pot deixar en blanc."
 
 #. Type: note
 #. Description
@@ -336,3 +342,18 @@ msgstr ""
 
 #~ msgid "Maximum clients:"
 #~ msgstr "Màxim de clients:"
+
+#~ msgid "Do you want to add the blocknotify option in the bitcoin.conf?"
+#~ msgstr "Voleu afegir l'opció «blocknotify» al «bitcoin.conf»?"
+
+#~ msgid "This is very highly recommended to avoid mining stale work."
+#~ msgstr "Això és molt recomanable per evitar tasques de minatge obsoletes."
+
+#~ msgid "Couldn't configure blocknotify automatically"
+#~ msgstr "No s'ha pogut configurar «blocknotify» automàticament"
+
+#~ msgid ""
+#~ "Please add \"blocknotify=killall -USR1 datum_gateway\" to your "
+#~ "bitcoin.conf file."
+#~ msgstr ""
+#~ "Afegiu «blocknotify=killall -USR1 datum_gateway» al fitxer «bitcoin.conf»."
